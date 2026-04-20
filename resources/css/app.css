@@ -1,0 +1,335 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Lato:400,500,700|Playfair+Display:400,700|Libre+Baskerville:400,700&display=swap');
+
+@import "tailwindcss";
+@import '../../vendor/livewire/flux/dist/flux.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Casa Gallina Font Families */
+  --font-sans: 'Lato', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Playfair Display', ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-libre: 'Libre Baskerville', ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  /* Casa Gallina Brand Colors */
+  --color-green-50: #f6f9f5;
+  --color-green-100: #eef3ec;
+  --color-green-200: #d3e0d0;
+  --color-green-300: #b8cdb3;
+  --color-green-400: #9cba97;
+  --color-green-500: #7fa77a;
+  --color-green-600: #68945c;
+  --color-green-700: #54764a;
+  --color-green-800: #3f5837;
+  --color-green-900: #2a3b25;
+  --color-green-950: #1a2417;
+
+  --color-gray-50: #f8f9fa;
+  --color-gray-100: #f1f3f4;
+  --color-gray-200: #e9ecef;
+  --color-gray-300: #dee2e6;
+  --color-gray-400: #ced4da;
+  --color-gray-500: #adb5bd;
+  --color-gray-600: #4e5f61;
+  --color-gray-700: #495057;
+  --color-gray-800: #343a40;
+  --color-gray-900: #212529;
+  --color-gray-950: #0d1117;
+
+  --color-red-50: #fdf2f2;
+  --color-red-100: #fce8e8;
+  --color-red-200: #fbd5d5;
+  --color-red-300: #f8b4b4;
+  --color-red-400: #f87171;
+  --color-red-500: #ef4444;
+  --color-red-600: #af6864;
+  --color-red-700: #b91c1c;
+  --color-red-800: #991b1b;
+  --color-red-900: #7f1d1d;
+  --color-red-950: #450a0a;
+
+  --color-orange-50: #fffbeb;
+  --color-orange-100: #fef3c7;
+  --color-orange-200: #fde68a;
+  --color-orange-300: #fcd34d;
+  --color-orange-400: #fbbf24;
+  --color-orange-500: #f59e0b;
+  --color-orange-600: #d69e0f;
+  --color-orange-700: #b45309;
+  --color-orange-800: #92400e;
+  --color-orange-900: #78350f;
+  --color-orange-950: #451a03;
+
+  /* Legacy forest colors for compatibility */
+  --color-forest-50: #f6f9f5;
+  --color-forest-100: #eef3ec;
+  --color-forest-200: #d3e0d0;
+  --color-forest-300: #b8cdb3;
+  --color-forest-400: #9cba97;
+  --color-forest-500: #7fa77a;
+  --color-forest-600: #69945C;
+  --color-forest-700: #54764a;
+  --color-forest-800: #3f5837;
+  --color-forest-900: #2a3b25;
+  --color-forest-950: #1a2417;
+
+  --color-gold-50: #fefcf7;
+  --color-gold-100: #fef7e7;
+  --color-gold-200: #fdecc2;
+  --color-gold-300: #fbe09d;
+  --color-gold-400: #f8d578;
+  --color-gold-500: #f7c94c;
+  --color-gold-600: #F5B519;
+  --color-gold-700: #d49408;
+  --color-gold-800: #a37006;
+  --color-gold-900: #724e04;
+  --color-gold-950: #422c02;
+
+  --color-blue-50: #f0f4fa;
+  --color-blue-100: #e6edf7;
+  --color-blue-200: #bfd2ea;
+  --color-blue-300: #99b7dd;
+  --color-blue-400: #729bd0;
+  --color-blue-500: #4c80c3;
+  --color-blue-600: #2964b6;
+  --color-blue-700: #063D8C;
+  --color-blue-800: #053170;
+  --color-blue-900: #032154;
+  --color-blue-950: #021638;
+
+  --color-accent: var(--color-green-700);
+  --color-accent-content: var(--color-green-800);
+  --color-accent-foreground: var(--color-white);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans), serif;
+  }
+}
+
+.collapse {
+  visibility: visible;
+}
+
+.sidebar {
+  @apply flex flex-col;
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-sm font-bold text-green-600 uppercase m-0;
+  }
+
+  p {
+    @apply text-gray-600 font-medium mb-4;
+  }
+}
+
+.programa-metadata {
+  p {
+    @apply mb-1;
+  }
+}
+
+.exposicion-metadata {
+  p {
+    @apply mb-1;
+
+    b,
+    strong {
+      @apply text-green-600 font-bold;
+    }
+  }
+}
+
+.exposicion-content {
+  @apply text-base leading-relaxed text-gray-800 mt-4 font-serif;
+
+  p {
+    @apply mb-2;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply !text-green-600 !font-bold !text-xl font-libre !tracking-tight;
+  }
+
+  b,
+  strong {
+    @apply text-green-600 font-bold;
+  }
+
+  ul,
+  ol {
+    @apply mb-4;
+  }
+
+  li {
+    @apply mb-2;
+
+    b,
+    strong {
+      @apply text-green-600;
+    }
+  }
+}
+
+.noticia-content {
+  @apply text-base leading-relaxed text-gray-800 mt-4 font-serif;
+
+  p {
+    @apply mb-2;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply !text-green-600 !font-bold !text-xl font-libre !tracking-tight;
+  }
+
+  b,
+  strong {
+    @apply text-green-600 font-bold;
+  }
+
+  ul,
+  ol {
+    @apply mb-4;
+  }
+
+  li {
+    @apply mb-2;
+
+    b,
+    strong {
+      @apply text-green-600;
+    }
+  }
+}
+
+.programa-title,
+.exposicion-title {
+  p {
+    @apply m-0;
+  }
+}
+
+.markdown-content {
+  @apply space-y-4;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply !text-green-600 !font-bold !text-lg font-libre !tracking-tight leading-tight;
+  }
+
+  b,
+  strong {
+    @apply text-green-600 font-bold;
+  }
+
+  p {
+    @apply font-serif text-gray-700;
+  }
+
+
+
+}
+
+.banner-content {
+  @apply text-base leading-relaxed;
+
+  h1 {
+    @apply !text-gray-100 !font-bold !text-4xl !font-serif !mb-4;
+  }
+
+  h2 {
+    @apply !text-gray-100 !font-bold !text-3xl !font-serif !mb-3;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply !text-gray-100 !font-bold !text-xl !font-serif !mb-2;
+  }
+
+  p {
+    @apply !text-gray-200 !mb-4 !font-sans !leading-relaxed;
+  }
+
+  b,
+  strong {
+    @apply !text-gray-100 !font-bold;
+  }
+
+  ul,
+  ol {
+    @apply !mb-4 !text-gray-200;
+  }
+
+  li {
+    @apply !mb-2 !text-gray-200;
+
+    b,
+    strong {
+      @apply !text-gray-100 !font-bold;
+    }
+  }
+}
+
+.donation-section {
+  @apply rounded-xl shadow-lg;
+
+
+  .donation-content {
+    @apply bg-white p-8;
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply !text-green-600 !font-bold !text-xl font-libre !tracking-tight;
+    }
+
+    b,
+    strong {
+      @apply text-green-600 font-bold;
+    }
+  }
+}
+
+/* Newsletter Form Validation Styles */
+.newsletter-form input.is-valid {
+  @apply border-green-500 border-2;
+}
+
+.newsletter-form input.is-invalid {
+  @apply border-red-500 border-2;
+}
+
+.newsletter-form input:focus.is-valid {
+  @apply ring-2 ring-green-500/50;
+}
+
+.newsletter-form input:focus.is-invalid {
+  @apply ring-2 ring-red-500/50;
+}
+
+.newsletter-form button:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}

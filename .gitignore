@@ -1,0 +1,100 @@
+# Dependencies
+/node_modules
+/vendor
+
+# Laravel Build Artifacts
+/public/hot
+/public/storage
+/public/build
+public/build/manifest.json
+
+# Laravel Storage & Cache
+/storage/*.key
+storage/logs/*.log
+*.log
+bootstrap/cache/*.php
+!bootstrap/cache/.gitkeep
+
+# Uploaded Files
+# Note: storage/app/public/* is ignored by storage/app/public/.gitignore
+# This includes all user-uploaded images, documents, and media files (~958MB)
+# The symlink at public/storage should also not be committed
+
+
+# Environment & Secrets
+.env
+.env.backup
+.env.*.php
+.env.php
+auth.json
+
+# Testing & Coverage
+.phpunit.result.cache
+.phpunit.cache/
+coverage/
+_ide_helper.php
+_ide_helper_models.php
+.phpstorm.meta.php
+
+# IDE & Editor Configurations
+/.idea
+/.vscode
+.DS_Store
+**/.DS_Store
+*.sublime-project
+*.sublime-workspace
+.claude/
+.cursor/
+.specstory
+
+# Temporary & Backup Files
+*.swp
+*.swo
+*~
+*.tmp
+*.bak
+*.backup
+*.old
+
+# Database Files
+*.sql
+*.sqlite
+*.db
+*.mwb
+*.mwb.bak
+casagallina.mwb
+casagallina.mwb.bak
+
+# Legacy Build Tools (Mix)
+public/mix-manifest.json
+
+# Deployment & Docker
+docker-compose.override.yml
+Homestead.json
+Homestead.yaml
+
+# Debug & Info Files
+public/assets/images/
+
+# NPM & Yarn
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+.pnpm-debug.log
+.yarn-integrity
+
+# OS Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.Spotlight-V100
+.Trashes
+
+# Note: composer.lock and package-lock.json should be committed
+# They are currently ignored but this should be reconsidered
+package-lock.json
+composer.lock
+
+# Agent files
+.agent
