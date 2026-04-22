@@ -115,11 +115,11 @@
 					</div>
 
 					<div class="intro-description">
-						A través de sus plataformas, Casa Gallina busca inocular, impulsar y vitalizar iniciativas y propuestas
-						sobre resiliencia, medio ambiente, creatividad en modelos alternos de asociación, y estilos de vida de
-						consumo responsable. Casa Gallina también busca el robustecimiento de redes comunitarias locales, así
-						como la alianza con iniciativas que compartan intereses similares con las que establecer procesos de
-						diálogo, trabajo e intercambio.
+					Casa Gallina funciona como un dinámico laboratorio cultural, elaborando proyectos innovadores que combinan
+					 el arte con la participación de la comunidad para preservar el medio ambiente, construir conexiones sociales
+					  y aumentar la educación sobre las prácticas culturales tradicionales. Casa Gallina cree que cuando los vecinos 
+					  tienen el tiempo y el espacio para construir conexiones intencionadas, construyen empatía entre ellos y pueden
+					   colaborar para crear proyectos que promuevan el bien común.
 					</div>
 				@endif
 
