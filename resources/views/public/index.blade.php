@@ -107,9 +107,11 @@
 				@else
 					{{-- Fallback content if no database content exists --}}
 					<div class="intro-text">
-						Casa Gallina es un proyecto cultural transdisciplinario cuyo programa se enfoca en aprendizajes y
-						acciones sobre cultura, comunidad y medio ambiente. El proyecto se ubica en Santa María la Ribera, un
-						barrio de la Ciudad de México, y busca facilitar sinergias al interior de las comunidades locales.
+					Casa Gallina es una organización creativa y sin fines de lucro en México dedicada a promover la protección
+					 del medio ambiente y la expresión cultural de las comunidades locales en todo el país. Fomentamos fuertes
+					  conexiones con el mundo natural, así como con las culturas indígenas, comenzando con las iniciativas
+					   impulsadas por la comunidad en la colonia Santa María la Ribera de la Ciudad de México y extendiéndolas
+					    a otras áreas urbanas y rurales del país.
 					</div>
 
 					<div class="intro-description">
