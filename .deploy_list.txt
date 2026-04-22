@@ -1,0 +1,17 @@
+.deploy_list.txt
+resources/js/components/navigation.js
+app/Http/Controllers/PublicController.php
+app/Modules/Contact/Infrastructure/Models/ContactSubmission.php
+config/services.php
+public/build/admin/manifest.json
+public/build/manifest.json
+public/build/public/manifest.json
+resources/js/app.js
+resources/js/pages/boletines.js
+resources/js/pages/casa.js
+resources/js/pages/estrategias.js
+resources/js/pages/home.js
+resources/js/pages/publicacion.js
+resources/views/layouts/boilerplate.blade.php
+resources/views/layouts/english/boilerplate.blade.php
+resources/views/public/publicacion.blade.php
