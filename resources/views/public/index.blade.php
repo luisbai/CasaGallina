@@ -108,18 +108,13 @@
 					{{-- Fallback content if no database content exists --}}
 					<div class="intro-text">
 					Casa Gallina es una organización creativa y sin fines de lucro en México dedicada a promover la protección
-					 del medio ambiente y la expresión cultural de las comunidades locales en todo el país. Fomentamos fuertes
-					  conexiones con el mundo natural, así como con las culturas indígenas, comenzando con las iniciativas
-					   impulsadas por la comunidad en la colonia Santa María la Ribera de la Ciudad de México y extendiéndolas
-					    a otras áreas urbanas y rurales del país.
+					 del medio ambiente y la expresión cultural de las comunidades locales en todo el país. 
 					</div>
 
 					<div class="intro-description">
-					Casa Gallina funciona como un dinámico laboratorio cultural, elaborando proyectos innovadores que combinan
-					 el arte con la participación de la comunidad para preservar el medio ambiente, construir conexiones sociales
-					  y aumentar la educación sobre las prácticas culturales tradicionales. Casa Gallina cree que cuando los vecinos 
-					  tienen el tiempo y el espacio para construir conexiones intencionadas, construyen empatía entre ellos y pueden
-					   colaborar para crear proyectos que promuevan el bien común.
+					Fomentamos fuertes conexiones con el mundo natural, así como con las culturas indígenas, comenzando con las iniciativas
+					   impulsadas por la comunidad en la colonia Santa María la Ribera de la Ciudad de México y extendiéndolas
+					    a otras áreas urbanas y rurales del país.
 					</div>
 				@endif
 
@@ -159,19 +154,22 @@
 
 				<!-- Intro Text -->
 				<div class="font-serif text-green-600 text-xl leading-6 py-4 md:px-16 pb-2 text-center">
-					Casa Gallina desarrolla programas transdisciplinarios que conectan cultura, comunidad y medio ambiente a
-					través de experiencias colectivas de resiliencia, regeneración ecológica y creatividad social en el
-					barrio de Santa María la Ribera.
+				En Casa Gallina, nos impulsa la creencia de que el aprendizaje colaborativo y las interacciones intersectoriales
+				 son la clave para mejorar el mundo que nos rodea. Trabajamos con artistas, educadores, científicos y vecinos
+				  apasionados para enriquecer nuestras comunidades, así como para crear y preservar la historia y las experiencias culturales. 
 				</div>
 
 				<!-- Intro Description -->
 				<div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2 pb-8">
-					<p>Nuestros programas se construyen mediante procesos de intercambio colectivo que involucran a la
-						comunidad local en colaboración con profesionales, artistas, científicos y gestores de diversas
-						disciplinas.</p>
+					<p>A través de exposiciones de arte innovadoras, libros publicados y eventos comunitarios, Casa Gallina captura,
+						 comparte y conserva de manera colaborativa las prácticas tradicionales, las lenguas y las historias de las
+						  comunidades indígenas de todo México. </p>
 
-					<p>Cada programa está diseñado para generar experiencias transformadoras que fortalezcan las redes
-						comunitarias y promuevan el cambio sostenible.</p>
+					<p>Comprometidos con una metodología rigurosa que incorpora las preocupaciones de la comunidad, Casa Gallina aborda
+						 todo nuestro trabajo a través de la cooperación y la asociación. Al trabajar con vecinos,
+						  gestores y organizaciones en la Ciudad de México y en todo el país, creamos experiencias, exposiciones 
+						  y publicaciones que abordan los desafíos específicos de la zona. Creamos herramientas y metodologías
+						   replicables y escalables para nuestros socios en todo México.</p>
 				</div>
 
 				<!-- Carousel -->
