@@ -94,35 +94,39 @@
 			</section>
 		@endif
 
-		<section id="home-intro">
-			<div class="container">
-				@if($introContent)
-					<div class="intro-text">
-						{!! $introContent->main_text_es !!}
-					</div>
+		<section id="home-intro" class="py-16 bg-white">
+    <div class="container mx-auto">
+        @if($introContent)
+            <div class="font-serif text-green-600 text-xl leading-6 py-4 md:px-16 pb-2 text-center">
+                {!! $introContent->main_text_es !!}
+            </div>
 
-					<div class="intro-description">
-						{!! $introContent->secondary_text_es !!}
-					</div>
-				@else
-					{{-- Fallback content if no database content exists --}}
-					<div class="intro-text">
-					Casa Gallina es una organización creativa y sin fines de lucro en México dedicada a promover la protección
-					 del medio ambiente y la expresión cultural de las comunidades locales en todo el país. 
-					</div>
+            <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2 pb-8 text-center">
+                {!! $introContent->secondary_text_es !!}
+            </div>
+        @else
+            {{-- Fallback content --}}
+            <div class="font-serif text-green-600 text-xl leading-6 py-4 md:px-16 pb-2 text-center">
+                Casa Gallina es una organización creativa y sin fines de lucro en México dedicada a promover la protección
+                del medio ambiente y la expresión cultural de las comunidades locales en todo el país. 
+            </div>
 
-					<div class="intro-description">
-					Fomentamos fuertes conexiones con el mundo natural, así como con las culturas indígenas, comenzando con las iniciativas
-					   impulsadas por la comunidad en la colonia Santa María la Ribera de la Ciudad de México y extendiéndolas
-					    a otras áreas urbanas y rurales del país.
-					</div>
-				@endif
+            <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2 pb-8 text-center">
+                <p>Fomentamos fuertes conexiones con el mundo natural, así como con las culturas indígenas, comenzando con las iniciativas
+                   impulsadas por la comunidad en la colonia Santa María la Ribera de la Ciudad de México y extendiéndolas
+                    a otras áreas urbanas y rurales del país.</p>
+            </div>
+        @endif
 
-				<div class="intro-readmore">
-					<a href="/la-casa">Leer más<div class="plus-sign">+</div></a>
-				</div>
-			</div>
-		</section>
+        <div class="text-center mt-8">
+            <a href="/la-casa" class="inline-flex items-center !text-green-600 hover:!text-green-700 transition-colors duration-200 !no-underline hover:!no-underline">
+                <span class="text-lg font-medium mr-2">Leer más</span>
+                <div class="w-6 h-6 !bg-green-600 hover:!bg-green-700 !text-white rounded-full flex items-center justify-center text-sm font-bold transition-colors duration-200">
+                    +</div>
+            </a>
+        </div>
+    </div>
+        </section>
 
 		<section id="home-estrategias" class="py-16 bg-white" x-data="{
 										currentIndex: 0,
