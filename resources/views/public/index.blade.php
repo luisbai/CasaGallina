@@ -111,7 +111,7 @@
                 del medio ambiente y la expresión cultural de las comunidades locales en todo el país. 
             </div>
 
-            <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2 pb-8 text-justify">
+            <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2 pb-8 text-left">
                 <p>Fomentamos fuertes conexiones con el mundo natural, así como con las culturas indígenas, comenzando con las iniciativas
                    impulsadas por la comunidad en la colonia Santa María la Ribera de la Ciudad de México y extendiéndolas
                     a otras áreas urbanas y rurales del país.</p>
