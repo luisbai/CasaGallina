@@ -114,7 +114,7 @@
             <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2 pb-8 text-leftq">
                 <p>Fomentamos fuertes conexiones con el mundo natural, así como con las culturas indígenas, comenzando con las iniciativas
                    impulsadas por la comunidad en la colonia Santa María la Ribera de la Ciudad de México y extendiéndolas
-                    a otras áreas urbanas y rurales del país.
+                    a otras áreas urbanas y rurales del país.<br>
 					Casa Gallina funciona como un dinámico laboratorio cultural, elaborando proyectos innovadores que combinan el arte con la
 					 participación de la comunidad para preservar el medio ambiente, construir conexiones sociales y aumentar la educación sobre
 					  las prácticas culturales tradicionales. Casa Gallina cree que cuando los vecinos tienen el tiempo y el espacio para construir
