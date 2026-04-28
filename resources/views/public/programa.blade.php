@@ -28,19 +28,21 @@
                         </div>
                         <!-- Intro Text -->
                         <div class="font-serif text-green-600 text-xl leading-6 py-4 md:px-16 pb-2 text-center">
-                            Casa Gallina desarrolla programas transdisciplinarios que conectan cultura, comunidad y medio
-                            ambiente a través de experiencias colectivas de resiliencia, regeneración ecológica y
-                            creatividad social en el barrio de Santa María la Ribera.
+                        El Programa de Casa Gallina articula un conjunto de líneas de trabajo orientadas a fortalecer el
+                         vínculo entre territorio, comunidad, medio ambiente y prácticas de cuidado. A través de procesos
+                          educativos, ambientales, artísticos y comunitarios, se promueven espacios de encuentro, aprendizaje
+                           e intercambio que parten del contexto específico en el que se desarrollan.
                         </div>
 
                         <!-- Intro Description -->
                         <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
-                            <p>Nuestros programas se construyen mediante procesos de intercambio colectivo que involucran a
-                                la comunidad local en colaboración con profesionales, artistas, científicos y gestores de
-                                diversas disciplinas.</p>
+                            <p>La estructura del programa se organiza en distintas modalidades que incluyen acciones locales
+                                 en Santa María la Ribera, colaboraciones con otros territorios, así como proyectos expositivos
+                                  y artísticos. En conjunto, estas líneas conforman una plataforma de trabajo que integra investigación,
+                                   creación, formación y participación comunitaria, con el objetivo de contribuir a la construcción de
+                                    relaciones más conscientes y sostenibles entre las personas y su entorno</p>
 
-                            <p>Cada programa está diseñado para generar experiencias transformadoras que fortalezcan las
-                                redes comunitarias y promuevan el cambio sostenible.</p>
+                        
                         </div>
                     </div>
                 </div>
@@ -59,14 +61,16 @@
                         </div>
                         <!-- Intro Text -->
                         <div class="font-serif text-green-600 text-xl leading-6 py-4 md:px-16 pb-2 text-center">
-                            Desarrollamos estrategias de intervención comunitaria que se adaptan a las necesidades
-                            específicas del territorio y sus habitantes.
+                        Articula las actividades y procesos que desarrollamos en Santa María la Ribera, en diálogo
+                         directo con quienes habitan el barrio.  
                         </div>
 
                         <!-- Intro Description -->
                         <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
-                            <p>Nuestras estrategias se dividen en dos enfoques complementarios: locales y externas, cada una
-                                diseñada para crear impacto significativo en diferentes escalas territoriales.</p>
+                            <p>A través de distintas líneas de trabajo, buscan fortalecer
+                          el tejido comunitario, promover el cuidado del entorno y activar espacios de encuentro y
+                           aprendizaje colectivo. Estos programas se construyen desde la escucha y la colaboración,
+                            atendiendo a las necesidades e intereses de la comunidad.</p>
                         </div>
                     </div>
 
@@ -162,15 +166,16 @@
                         </div>
                         <!-- Intro Text -->
                         <div class="font-serif text-green-600 text-xl leading-6 py-4 md:px-16 pb-2 text-center">
-                            Iniciativas que trascienden los límites del barrio para generar redes de colaboración y
-                            intercambio con otras comunidades y territorios.
+                        Reúne proyectos e iniciativas que desarrollamos fuera de Santa María la Ribera, en colaboración
+                         con organizaciones y colectivos vinculados activamente a sus propios territorios. A través de
+                          estos procesos compartimos herramientas de trabajo y expandimos el alcance de nuestras líneas programáticas.
                         </div>
 
                         <!-- Intro Description -->
                         <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
-                            <p>Las estrategias externas amplían el alcance de nuestro trabajo, creando puentes entre
-                                diferentes contextos y fortaleciendo la red de colaboradores que comparten nuestra visión de
-                                transformación social.</p>
+                            <p>Desde enfoques participativos y transdisciplinarios, impulsamos experiencias construidas de
+                                 manera conjunta, adaptadas a cada contexto y orientadas a generar impacto significativo en
+                                  las comunidades con las que trabajamos.</p>
                         </div>
                     </div>
 
