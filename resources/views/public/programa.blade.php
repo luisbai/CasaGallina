@@ -270,17 +270,18 @@
                         </div>
                         <!-- Intro Text -->
                         <div class="font-serif text-gray-600 text-xl leading-6 py-4 md:px-16 pb-2 text-center">
-                            Espacios de encuentro y reflexión que visibilizan los procesos comunitarios y las narrativas
-                            locales a través del arte y la cultura.
+                        Montajes abiertos al público donde se presentan procesos de investigación y creación desarrollados por
+                         artistas en diálogo con investigaciones científicas sobre temas de la vida cotidiana. Funcionan como
+                          espacios de encuentro que articulan reflexión, experiencia estética y conversación.
                         </div>
 
                         <!-- Intro Description -->
                         <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
-                            <p>Nuestras exposiciones funcionan como laboratorios de experimentación donde convergen
-                                diferentes disciplinas artísticas y saberes comunitarios.</p>
+                            <p>A través de las muestras y de un programa público de actividades, las exposiciones abordan temas
+                                 vinculados con el territorio, la ecología, la memoria y la vida comunitaria, propiciando
+                                  lecturas críticas y sensibles sobre el contexto que habitamos.</p>
 
-                            <p>Cada muestra es resultado de procesos colaborativos que dan voz a las narrativas locales y
-                                promueven el diálogo intercultural.</p>
+                            
                         </div>
                     </div>
 
@@ -392,17 +393,18 @@
                         </div>
                         <!-- Intro Text -->
                         <div class="font-serif text-red-600 text-xl leading-6 py-4 md:px-16 pb-2 text-center">
-                            Iniciativas creativas que surgen del diálogo entre artistas y la comunidad, generando obras que
-                            reflejan las experiencias y saberes locales.
+                        Procesos de investigación y creación desarrollados en colaboración con artistas invitados.
+                         Se construyen en diálogo con comunidades específicas, ya sea del barrio o de otros territorios
+                          con los que el artista mantiene un vínculo significativo.
                         </div>
 
                         <!-- Intro Description -->
                         <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
-                            <p>Los proyectos artísticos de Casa Gallina nacen de la colaboración directa entre creadores y
-                                habitantes del barrio, generando propuestas únicas y contextualizadas.</p>
+                            <p>Más allá de la producción de obra, estos proyectos priorizan el proceso, el intercambio y
+                                 la experimentación, integrando metodologías participativas que fortalecen la relación
+                                  entre práctica artística, territorio y comunidad.</p>
 
-                            <p>Cada proyecto busca transformar el espacio público y fortalecer la identidad comunitaria a
-                                través de intervenciones artísticas participativas.</p>
+                            
                         </div>
                     </div>
 
