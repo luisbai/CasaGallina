@@ -265,11 +265,11 @@
                 <div class="flex flex-col py-8 gap-6">
                     <div class="flex flex-col">
                         <!-- Section Title -->
-                        <div class="text-center border-b-2 border-gray-600 pb-2 mb-2">
-                            <span class="bg-gray-600 px-8 py-2 text-white font-serif text-2xl leading-4">Exposiciones</span>
+                        <div class="text-center border-b-2 border-green-600 pb-2 mb-2">
+                            <span class="bg-green-600 px-8 py-2 text-white font-serif text-2xl leading-4">Exposiciones</span>
                         </div>
                         <!-- Intro Text -->
-                        <div class="font-serif text-gray-600 text-xl leading-6 py-4 md:px-16 pb-2 text-center">
+                        <div class="font-serif text-green-600 text-xl leading-6 py-4 md:px-16 pb-2 text-center">
                         Montajes abiertos al público donde se presentan procesos de investigación y creación desarrollados por
                          artistas en diálogo con investigaciones científicas sobre temas de la vida cotidiana. Funcionan como
                           espacios de encuentro que articulan reflexión, experiencia estética y conversación.
@@ -387,12 +387,12 @@
                 <div class="flex flex-col py-8 gap-6">
                     <div class="flex flex-col">
                         <!-- Section Title -->
-                        <div class="text-center border-b-2 border-red-600 pb-2 mb-2">
+                        <div class="text-center border-b-2 border-green-600 pb-2 mb-2">
                             <span class="bg-red-600 px-8 py-2 text-white font-serif text-2xl leading-4">Proyectos
                                 artísticos</span>
                         </div>
                         <!-- Intro Text -->
-                        <div class="font-serif text-red-600 text-xl leading-6 py-4 md:px-16 pb-2 text-center">
+                        <div class="font-serif text-green-600 text-xl leading-6 py-4 md:px-16 pb-2 text-center">
                         Procesos de investigación y creación desarrollados en colaboración con artistas invitados.
                          Se construyen en diálogo con comunidades específicas, ya sea del barrio o de otros territorios
                           con los que el artista mantiene un vínculo significativo.
