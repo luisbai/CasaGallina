@@ -381,14 +381,12 @@
                 <div class="flex flex-col py-8 gap-6">
                     <div class="flex flex-col">
                         <!-- Section Title -->
-                        <div class="text-center border-b-2 border-red-600 pb-2 mb-2">
-                            <span class="bg-red-600 px-8 py-2 text-white font-serif text-2xl leading-4">Proyectos
-                                artísticos</span>
+                        <div class="text-center border-b-2 border-[#12554e] pb-2 mb-2">
+                         <span class="bg-[#12554e] px-8 py-2 text-white font-serif text-2xl leading-4">Proyectos artísticos</span>
                         </div>
                         <!-- Intro Text -->
-                        <div class="font-serif text-red-600 text-xl leading-6 py-4 md:px-16 pb-2 text-center">
-                            Iniciativas creativas que surgen del diálogo entre artistas y la comunidad, generando obras que
-                            reflejan las experiencias y saberes locales.
+                        <div class="font-serif text-[#12554e] text-xl leading-6 py-4 md:px-16 pb-2 text-center">
+                        Iniciativas creativas que surgen del diálogo entre artistas y la comunidad, generando obras que reflejan las experiencias y saberes locales.
                         </div>
 
                         <!-- Intro Description -->
