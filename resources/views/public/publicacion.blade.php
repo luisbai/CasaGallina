@@ -43,9 +43,13 @@
 								<p class=""><b>Coordinación editorial:</b> {{ $publicacion->coordinacion_editorial }}</p>
 							@endif
 
+							@if ($publicacion->diseno)
+								<p class=""><b>Diseño:</b> {{ $publicacion->diseno }}</p>
+							@endif
 
-
-
+							@if ($publicacion->textos)
+								<p class=""><b>Textos:</b> {{ $publicacion->textos }}</p>
+							@endif
 
 							@if ($publicacion->campo_opcional_2_titulo && $publicacion->campo_opcional_2)
 								<p class=""><b>{{ $publicacion->campo_opcional_2_titulo }}</b>
@@ -86,8 +90,17 @@
 									</div>
 								@endif
 
-
-
+								@if ($publicacion->fecha_publicacion)
+									<div class="col-lg-3">
+										<p><b>Fecha de publicación:</b> {{ $publicacion->fecha_publicacion }}</p>
+									</div>
+								@endif	
+								
+								@if ($publicacion->campo_opcional_4_titulo && $publicacion->campo_opcional_4)
+									<div class="col-lg-3">
+										<p><b>{{ $publicacion->campo_opcional_4_titulo }}</b> {{ $publicacion->campo_opcional_4 }}</p>
+									</div>
+								@endif
 
 							</div>
 
