@@ -34,7 +34,7 @@
                         </div>
 
                         <!-- Intro Description -->
-                        <div class="font-libre text-green-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
+                        <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
                             <p>Nuestros programas se construyen mediante procesos de intercambio colectivo que involucran a
                                 la comunidad local en colaboración con profesionales, artistas, científicos y gestores de
                                 diversas disciplinas.</p>
@@ -64,7 +64,7 @@
                         </div>
 
                         <!-- Intro Description -->
-                        <div class="font-libre text-green-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
+                        <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
                             <p>Nuestras estrategias se dividen en dos enfoques complementarios: locales y externas, cada una
                                 diseñada para crear impacto significativo en diferentes escalas territoriales.</p>
                         </div>
@@ -167,7 +167,7 @@
                         </div>
 
                         <!-- Intro Description -->
-                        <div class="font-libre text-green-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
+                        <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
                             <p>Las estrategias externas amplían el alcance de nuestro trabajo, creando puentes entre
                                 diferentes contextos y fortaleciendo la red de colaboradores que comparten nuestra visión de
                                 transformación social.</p>
@@ -260,17 +260,17 @@
                 <div class="flex flex-col py-8 gap-6">
                     <div class="flex flex-col">
                         <!-- Section Title -->
-                        <div class="text-center border-b-2 border-green-600 pb-2 mb-2">
-                            <span class="bg-green-600 px-8 py-2 text-white font-serif text-2xl leading-4">Exposiciones</span>
+                        <div class="text-center border-b-2 border-gray-600 pb-2 mb-2">
+                            <span class="bg-gray-600 px-8 py-2 text-white font-serif text-2xl leading-4">Exposiciones</span>
                         </div>
                         <!-- Intro Text -->
-                        <div class="font-serif text-green-600 text-xl leading-6 py-4 md:px-16 pb-2 text-center">
+                        <div class="font-serif text-gray-600 text-xl leading-6 py-4 md:px-16 pb-2 text-center">
                             Espacios de encuentro y reflexión que visibilizan los procesos comunitarios y las narrativas
                             locales a través del arte y la cultura.
                         </div>
 
                         <!-- Intro Description -->
-                        <div class="font-libre text-green-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
+                        <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
                             <p>Nuestras exposiciones funcionan como laboratorios de experimentación donde convergen
                                 diferentes disciplinas artísticas y saberes comunitarios.</p>
 
@@ -318,7 +318,7 @@
                                                         <img src="{{ asset('images/no-image.svg') }}" alt="{{ $exposicion->titulo }}" class="w-full h-full object-cover">
                                                     @endif
                                                 </div>
-                                                <h3 class="font-sans text-green-600 !text-xl leading-5 tracking-tight mb-2">
+                                                <h3 class="font-sans text-gray-600 !text-xl leading-5 tracking-tight mb-2">
                                                     {!! str_replace(['<p>', '</p>'], '', $exposicion->titulo) !!}
                                                 </h3>
                                             </a>
@@ -329,14 +329,14 @@
 
                             <!-- Navigation Buttons -->
                             <button @click="prev()" x-show="canGoPrev"
-                                class="absolute -left-6 top-26 bg-green-600 hover:bg-green-700 shadow-lg rounded-full p-3 transition-colors duration-200 z-10">
+                                class="absolute -left-6 top-26 bg-gray-600 hover:bg-gray-700 shadow-lg rounded-full p-3 transition-colors duration-200 z-10">
                                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                                 </svg>
                             </button>
 
                             <button @click="next()" x-show="canGoNext"
-                                class="absolute -right-6 top-26 bg-green-600 hover:bg-green-700 shadow-lg rounded-full p-3 transition-colors duration-200 z-10">
+                                class="absolute -right-6 top-26 bg-gray-600 hover:bg-gray-700 shadow-lg rounded-full p-3 transition-colors duration-200 z-10">
                                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                                 </svg>
@@ -348,7 +348,7 @@
                                 <template x-for="(slide, index) in Array.from({length: totalSlides}, (_, i) => i)" :key="index">
                                     <button @click="goToSlide(index)"
                                         class="w-3 h-3 rounded-full transition-colors duration-200"
-                                        :class="currentIndex === index ? 'bg-green-600' : 'bg-gray-400 hover:bg-gray-500'">
+                                        :class="currentIndex === index ? 'bg-gray-600' : 'bg-gray-400 hover:bg-gray-500'">
                                     </button>
                                 </template>
                             </div>
@@ -362,7 +362,7 @@
                     <!-- Read More Link -->
                     <div class="text-center mt-4">
                         <a href="{{ route('exposiciones') }}"
-                            class="font-libre text-lg leading-6 tracking-tight !text-gray-50 !bg-green-600 px-4 py-2.5 hover:!bg-green-600/90 transition-all duration-300 inline-flex items-center justify-center hover:!no-underline">
+                            class="font-libre text-lg leading-6 tracking-tight !text-gray-50 !bg-gray-600 px-4 py-2.5 hover:!bg-gray-600/90 transition-all duration-300 inline-flex items-center justify-center hover:!no-underline">
                             <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
                                     d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
@@ -381,16 +381,16 @@
                 <div class="flex flex-col py-8 gap-6">
                     <div class="flex flex-col">
                         <!-- Section Title -->
-                        <div class="text-center border-b-2 border-green-600 pb-2 mb-2">
-                         <span class="bg-green-600 px-8 py-2 text-white font-serif text-2xl leading-4">Proyectos artísticos</span>
+                        <div class="text-center border-b-2 border-[#12554e] pb-2 mb-2">
+                         <span class="bg-[#12554e] px-8 py-2 text-white font-serif text-2xl leading-4">Proyectos artísticos</span>
                         </div>
                         <!-- Intro Text -->
-                        <div class="font-serif text-green-600 text-xl leading-6 py-4 md:px-16 pb-2 text-center">
+                        <div class="font-serif text-[#12554e] text-xl leading-6 py-4 md:px-16 pb-2 text-center">
                         Iniciativas creativas que surgen del diálogo entre artistas y la comunidad, generando obras que reflejan las experiencias y saberes locales.
                         </div>
 
                         <!-- Intro Description -->
-                        <div class="font-libre text-green-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
+                        <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
                             <p>Los proyectos artísticos de Casa Gallina nacen de la colaboración directa entre creadores y
                                 habitantes del barrio, generando propuestas únicas y contextualizadas.</p>
 
@@ -438,7 +438,7 @@
                                                     <img src="{{ asset('images/no-image.svg') }}" alt="{{ $tag->nombre }}" class="w-full h-full object-cover">
                                                  @endif
                                                 </div>
-                                                <h3 class="font-sans text-green-600 !text-xl leading-5 tracking-tight mb-2">
+                                                <h3 class="font-sans text-red-600 !text-xl leading-5 tracking-tight mb-2">
                                                     {!! str_replace(['<p>', '</p>'], '', $proyecto->titulo) !!}
                                                 </h3>
                                             </a>
@@ -449,14 +449,14 @@
 
                             <!-- Navigation Buttons -->
                             <button @click="prev()" x-show="canGoPrev"
-                                class="absolute -left-6 top-26 bg-green-600 hover:bg-green-700 shadow-lg rounded-full p-3 transition-colors duration-200 z-10">
+                                class="absolute -left-6 top-26 bg-red-600 hover:bg-red-700 shadow-lg rounded-full p-3 transition-colors duration-200 z-10">
                                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                                 </svg>
                             </button>
 
                             <button @click="next()" x-show="canGoNext"
-                                class="absolute -right-6 top-26 bg-green-600 hover:bg-green-700 shadow-lg rounded-full p-3 transition-colors duration-200 z-10">
+                                class="absolute -right-6 top-26 bg-red-600 hover:bg-red-700 shadow-lg rounded-full p-3 transition-colors duration-200 z-10">
                                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                                 </svg>
@@ -468,7 +468,7 @@
                                 <template x-for="(slide, index) in Array.from({length: totalSlides}, (_, i) => i)" :key="index">
                                     <button @click="goToSlide(index)"
                                         class="w-3 h-3 rounded-full transition-colors duration-200"
-                                        :class="currentIndex === index ? 'bg-green-600' : 'bg-gray-400 hover:bg-gray-500'">
+                                        :class="currentIndex === index ? 'bg-red-600' : 'bg-gray-400 hover:bg-gray-500'">
                                     </button>
                                 </template>
                             </div>
@@ -482,7 +482,7 @@
                     <!-- Read More Link -->
                     <div class="text-center mt-4">
                         <a href="{{ route('proyectos-artisticos') }}"
-                            class="font-libre text-lg leading-6 tracking-tight !text-gray-50 !bg-green-600 px-4 py-2.5 hover:!bg-green-600/90 transition-all duration-300 inline-flex items-center justify-center hover:!no-underline">
+                            class="font-libre text-lg leading-6 tracking-tight !text-gray-50 !bg-red-600 px-4 py-2.5 hover:!bg-red-600/90 transition-all duration-300 inline-flex items-center justify-center hover:!no-underline">
                             <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
                                     d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
