@@ -34,7 +34,7 @@
                         </div>
 
                         <!-- Intro Description -->
-                        <div class="font-libre text-green-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
+                        <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
                             <p>Nuestros programas se construyen mediante procesos de intercambio colectivo que involucran a
                                 la comunidad local en colaboración con profesionales, artistas, científicos y gestores de
                                 diversas disciplinas.</p>
@@ -64,7 +64,7 @@
                         </div>
 
                         <!-- Intro Description -->
-                        <div class="font-libre text-green-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
+                        <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
                             <p>Nuestras estrategias se dividen en dos enfoques complementarios: locales y externas, cada una
                                 diseñada para crear impacto significativo en diferentes escalas territoriales.</p>
                         </div>
@@ -167,7 +167,7 @@
                         </div>
 
                         <!-- Intro Description -->
-                        <div class="font-libre text-green-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
+                        <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
                             <p>Las estrategias externas amplían el alcance de nuestro trabajo, creando puentes entre
                                 diferentes contextos y fortaleciendo la red de colaboradores que comparten nuestra visión de
                                 transformación social.</p>
@@ -270,7 +270,7 @@
                         </div>
 
                         <!-- Intro Description -->
-                        <div class="font-libre text-green-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
+                        <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
                             <p>Nuestras exposiciones funcionan como laboratorios de experimentación donde convergen
                                 diferentes disciplinas artísticas y saberes comunitarios.</p>
 
@@ -390,7 +390,7 @@
                         </div>
 
                         <!-- Intro Description -->
-                        <div class="font-libre text-green-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
+                        <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2">
                             <p>Los proyectos artísticos de Casa Gallina nacen de la colaboración directa entre creadores y
                                 habitantes del barrio, generando propuestas únicas y contextualizadas.</p>
 
