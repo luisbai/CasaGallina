@@ -45,103 +45,25 @@ class EstrategiasToProgramasSeeder extends Seeder
         $estrategias = Estrategia::where('status', 'public')->get();
 
         foreach ($estrategias as $estrategia) {
-
-            // 1. FILTRO ANTI-DUPLICADOS (Ignora lo que ya subiste manualmente)
-            $existe = Programa::where('titulo', 'LIKE', '%"es":"' . $estrategia->titulo . '"%')
-                ->orWhere('titulo', 'LIKE', '%' . $estrategia->titulo . '%')
-                ->exists();
-
-            if ($existe) {
-                echo "Saltado (Ya existe en el administrador): {$estrategia->titulo}\n";
-                continue;
-            }
-
             // Determine program type based on content analysis
             $tipo = $this->determineType($estrategia);
+            
+            // Create metadatos from optional fields
+            $metadatos = $this->buildMetadatos($estrategia);
 
-            // 2. PROCESAR CONTENIDO (ÚNICAMENTE CON TRADUCCIÓN EXISTENTE)
-            $contenidoEspañol = '';
-            if ($estrategia->contenido) {
-                $contenidoEspañol .= '<h2>Descripción</h2>' . $estrategia->contenido;
-            }
-            if ($estrategia->programas) {
-                $contenidoEspañol .= '<h2>Actividades y Programas</h2>' . $estrategia->programas;
-            }
+            // Build main content from estrategia fields
+            $contenido = $this->buildContent($estrategia);
 
-            $contenidoIngles = '';
-            if ($estrategia->contenido_en) {
-                $contenidoIngles .= '<h2>Description (English)</h2>' . $estrategia->contenido_en;
-            }
-            if ($estrategia->programas_en) {
-                $contenidoIngles .= '<h2>Activities and Programs (English)</h2>' . $estrategia->programas_en;
-            }
-
-            // 3. PROCESAR METADATOS (SUBTÍTULOS, LUGARES, COLABORADORES Y CAMPOS OPCIONALES)
-            $metadatosEspañol = '';
-            if ($estrategia->subtitulo) {
-                $metadatosEspañol .= '<h2>Descripción</h2><p>' . $estrategia->subtitulo . '</p>';
-            }
-            if ($estrategia->lugar) {
-                $metadatosEspañol .= '<h2>Lugar</h2><p>' . $estrategia->lugar . '</p>';
-            }
-            if ($estrategia->colaboradores) {
-                $metadatosEspañol .= '<h2>Colaboradores</h2><p>' . str_replace(["\r\n", "\n"], '<br>', $estrategia->colaboradores) . '</p>';
-            }
-            for ($i = 1; $i <= 5; $i++) {
-                $tituloField = "campo_opcional_{$i}_titulo";
-                $contentField = "campo_opcional_{$i}";
-                if ($estrategia->$tituloField && $estrategia->$contentField) {
-                    $metadatosEspañol .= '<h2>' . $estrategia->$tituloField . '</h2><p>' . str_replace(["\r\n", "\n"], '<br>', $estrategia->$contentField) . '</p>';
-                }
-            }
-
-            $metadatosIngles = '';
-            if ($estrategia->subtitulo_en) {
-                $metadatosIngles .= '<h2>Description</h2><p>' . $estrategia->subtitulo_en . '</p>';
-            }
-            if ($estrategia->lugar_en) {
-                $metadatosIngles .= '<h2>Location</h2><p>' . $estrategia->lugar_en . '</p>';
-            }
-            if ($estrategia->colaboradores_en) {
-                $metadatosIngles .= '<h2>Collaborators</h2><p>' . str_replace(["\r\n", "\n"], '<br>', $estrategia->colaboradores_en) . '</p>';
-            }
-            for ($i = 1; $i <= 5; $i++) {
-                $tituloFieldEn = "campo_opcional_{$i}_en_titulo";
-                $contentFieldEn = "campo_opcional_{$i}_en";
-                if ($estrategia->$tituloFieldEn && $estrategia->$contentFieldEn) {
-                    $metadatosIngles .= '<h2>' . $estrategia->$tituloFieldEn . '</h2><p>' . str_replace(["\r\n", "\n"], '<br>', $estrategia->$contentFieldEn) . '</p>';
-                }
-            }
-
-            // 4. ESTRUCTURAR ARRAYS JSON PARA TRANSLATABLE
-            $tituloJSON = [
-                'es' => $estrategia->titulo,
-                'en' => $estrategia->titulo_en ?: ''
-            ];
-
-            $contenidoJSON = [
-                'es' => $contenidoEspañol,
-                'en' => $contenidoIngles
-            ];
-
-            $metadatosJSON = [
-                'es' => $metadatosEspañol,
-                'en' => $metadatosIngles
-            ];
-
-            // 5. INSERCION EN LA TABLA PROGRAMAS
+            // Create programa
             $programa = Programa::create([
-                'estado'      => 'activo',
-                'tipo'        => $tipo,
-                'fecha'       => $estrategia->fecha ?: 'Ongoing',
-                'titulo'      => json_encode($tituloJSON, JSON_UNESCAPED_UNICODE),
-                'contenido'   => json_encode($contenidoJSON, JSON_UNESCAPED_UNICODE),
-                'metadatos'   => json_encode($metadatosJSON, JSON_UNESCAPED_UNICODE), 
-                'titulo_en'   => null, 
-                'contenido_en'=> null,
-                'metadatos_en'=> null,
-                'created_at'  => $estrategia->created_at,
-                'updated_at'  => $estrategia->updated_at,
+                'estado' => 'activo',
+                'tipo' => $tipo,
+                'fecha' => $estrategia->fecha ?: 'Ongoing',
+                'titulo' => $estrategia->titulo,
+                'metadatos' => $metadatos,
+                'contenido' => $contenido,
+                'created_at' => $estrategia->created_at,
+                'updated_at' => $estrategia->updated_at,
             ]);
 
             // Assign primary tag based on type
@@ -177,7 +99,7 @@ class EstrategiasToProgramasSeeder extends Seeder
                 ]);
             }
 
-            echo "Migrado con traducciones reales (Vacíos listos para IA): {$estrategia->titulo}\n";
+            echo "Migrated: {$estrategia->titulo} -> {$programa->titulo}\n";
         }
     }
 
@@ -188,6 +110,7 @@ class EstrategiasToProgramasSeeder extends Seeder
     {
         $content = strtolower($estrategia->contenido . ' ' . $estrategia->programas . ' ' . $estrategia->lugar);
         
+        // Keywords that suggest external collaboration
         $externalKeywords = [
             'colaboraci', 'alianza', 'convenio', 'museo', 'universidad', 'instituto',
             'fundación', 'asociación', 'a.c.', 'planetario', 'biblioteca', 'centro'
@@ -203,6 +126,101 @@ class EstrategiasToProgramasSeeder extends Seeder
     }
 
     /**
+     * Build metadatos HTML string from estrategia optional fields
+     */
+    private function buildMetadatos(Estrategia $estrategia): string
+    {
+        $html = '';
+
+        // Add basic info
+        if ($estrategia->subtitulo) {
+            $html .= '<h2>Descripción</h2>';
+            $html .= '<p>' . $estrategia->subtitulo . '</p>';
+        }
+        
+        if ($estrategia->lugar) {
+            $html .= '<h2>Lugar</h2>';
+            $html .= '<p>' . $estrategia->lugar . '</p>';
+        }
+        
+        if ($estrategia->colaboradores) {
+            $html .= '<h2>Colaboradores</h2>';
+            $html .= '<p>' . str_replace(["\r\n", "\n"], '<br>', $estrategia->colaboradores) . '</p>';
+        }
+
+        // Add optional fields
+        for ($i = 1; $i <= 5; $i++) {
+            $tituloField = "campo_opcional_{$i}_titulo";
+            $contentField = "campo_opcional_{$i}";
+            
+            if ($estrategia->$tituloField && $estrategia->$contentField) {
+                $html .= '<h2>' . $estrategia->$tituloField . '</h2>';
+                $html .= '<p>' . str_replace(["\r\n", "\n"], '<br>', $estrategia->$contentField) . '</p>';
+            }
+        }
+
+        // Add English versions if available
+        if ($estrategia->titulo_en || $estrategia->subtitulo_en || $estrategia->lugar_en || $estrategia->colaboradores_en) {
+            $html .= '<h2>English Information</h2>';
+            
+            if ($estrategia->titulo_en) {
+                $html .= '<h3>Title</h3>';
+                $html .= '<p>' . $estrategia->titulo_en . '</p>';
+            }
+            
+            if ($estrategia->subtitulo_en) {
+                $html .= '<h3>Description</h3>';
+                $html .= '<p>' . $estrategia->subtitulo_en . '</p>';
+            }
+            
+            if ($estrategia->lugar_en) {
+                $html .= '<h3>Location</h3>';
+                $html .= '<p>' . $estrategia->lugar_en . '</p>';
+            }
+            
+            if ($estrategia->colaboradores_en) {
+                $html .= '<h3>Collaborators</h3>';
+                $html .= '<p>' . str_replace(["\r\n", "\n"], '<br>', $estrategia->colaboradores_en) . '</p>';
+            }
+        }
+
+        return $html;
+    }
+
+    /**
+     * Build main content from estrategia fields with HTML structure
+     */
+    private function buildContent(Estrategia $estrategia): string
+    {
+        $content = '';
+
+        // Main description
+        if ($estrategia->contenido) {
+            $content .= '<h2>Descripción</h2>';
+            $content .= $estrategia->contenido;
+        }
+
+        // Programs section
+        if ($estrategia->programas) {
+            $content .= '<h2>Actividades y Programas</h2>';
+            $content .= $estrategia->programas;
+        }
+
+        // English content if available
+        if ($estrategia->contenido_en) {
+            $content .= '<h2>Description (English)</h2>';
+            $content .= $estrategia->contenido_en;
+        }
+
+        if ($estrategia->programas_en) {
+            $content .= '<h2>Activities and Programs (English)</h2>';
+            $content .= $estrategia->programas_en;
+        }
+
+        return $content;
+    }
+
+    /**
      * Get relevant tags based on estrategia content
      */
     private function getRelevantTags(Estrategia $estrategia, $availableTags): array
@@ -213,6 +231,7 @@ class EstrategiasToProgramasSeeder extends Seeder
         foreach ($availableTags as $tag) {
             $tagName = strtolower($tag->nombre);
             
+            // Match based on keywords
             $keywords = $this->getTagKeywords($tagName);
             
             foreach ($keywords as $keyword) {
