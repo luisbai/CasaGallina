@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 use App\Models\Estrategia;
 
 class EstrategiasToProgramasSeeder extends Seeder
