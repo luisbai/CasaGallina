@@ -4,13 +4,11 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\Estrategia;
 
 class EstrategiasToProgramasSeeder extends Seeder
 {
     public function run()
     {
-        // 1. OBTENER LOS REGISTROS VIEJOS
         $estrategias = DB::table('estrategias')->get();
 
         if ($estrategias->isEmpty()) {
@@ -18,211 +16,263 @@ class EstrategiasToProgramasSeeder extends Seeder
             return;
         }
 
+        echo "🚀 INICIANDO INSERCIÓN REAL DE PROGRAMAS CON EMPAREJAMIENTO BLINDADO\n";
+        echo "====================================================================\n";
+
         foreach ($estrategias as $estrategia) {
+            $htmlEs = $estrategia->programas ?? $estrategia->contenido ?? '';
+            $htmlEn = $estrategia->programas_en ?? $estrategia->contenido_en ?? '';
 
-            $htmlEspanyol = $estrategia->programas ?? '';
-            $htmlIngles   = $estrategia->programas_en ?? '';
+            $actividadesEs = $this->extraerActividadesEs($htmlEs);
+            $bloquesEn = $this->extraerBloquesRawEn($htmlEn);
 
-            // 2. PRE-PROCESAMIENTO DINÁMICO E INYECCIÓN DE SALTOS
-            $htmlEspanyol = $this->convertirLineasHuorfanasEnTitulos($htmlEspanyol);
-            $htmlIngles   = $this->convertirLineasHuorfanasEnTitulos($htmlIngles);
-
-            // 3. CORTE POR ENCABEZADOS
-            $bloquesEs = preg_split('/(<h1[^>]*>.*?<\/h1>|<h2[^>]*>.*?<\/h2>|<h3[^>]*>.*?<\/h3>)/is', $htmlEspanyol, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
-            $bloquesEn = preg_split('/(<h1[^>]*>.*?<\/h1>|<h2[^>]*>.*?<\/h2>|<h3[^>]*>.*?<\/h3>)/is', $htmlIngles, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
-
-            $entradasEs = [];
-            $entradasEn = [];
-
-            $tituloActualEs = 'Actividad sin título';
-            foreach ($bloquesEs as $bloque) {
-                $bloque = trim($bloque);
-                if (empty($bloque) || strip_tags($bloque) === '') continue;
-                
-                if (preg_match('/<(h1|h2|h3)[^>]*>(.*?)<\/\1>/is', $bloque, $match)) {
-                    $tituloActualEs = trim(strip_tags($match[2]));
-                    continue;
-                }
-                
-                if (mb_strlen($tituloActualEs) > 150) continue; 
-
-                $entradasEs[] = ['titulo' => $tituloActualEs, 'cuerpo' => $bloque];
+            if (empty($actividadesEs)) {
+                continue;
             }
 
-            $tituloActualEn = 'Untitled Activity';
-            foreach ($bloquesEn as $bloque) {
-                $bloque = trim($bloque);
-                if (empty($bloque) || strip_tags($bloque) === '') continue;
+            echo "📂 Procesando Estrategia ID {$estrategia->id}...\n";
+
+            foreach ($actividadesEs as $indexEs => $actividadEs) {
+                $tituloEs = $actividadEs['titulo'];
                 
-                if (preg_match('/<(h1|h2|h3)[^>]*>(.*?)<\/\1>/is', $bloque, $match)) {
-                    $tituloActualEn = trim(strip_tags($match[2]));
-                    continue;
-                }
-                
-                if (mb_strlen($tituloActualEn) > 150) continue; 
+                // Buscar par ideal usando el algoritmo de votación con desempate por nombres de ficha
+                $parejaEn = $this->buscarVerdaderoParEnConVotacionDefinitiva($actividadEs, $indexEs, $bloquesEn);
 
-                $entradasEn[] = [
-                    'titulo_en' => $tituloActualEn, 
-                    'cuerpo_en' => $bloque,
-                    'texto_limpio' => strtolower(strip_tags($bloque))
-                ];
-            }
-
-            // 4. MAPEO E INSERCIÓN CLON DE PRODUCCIÓN
-            foreach ($entradasEs as $entradaEsData) {
-                $tituloEs = $entradaEsData['titulo'];
-                $cuerpoEs = $entradaEsData['cuerpo'];
-
-                $mejorCoincidencia = -1;
-                $bloqueInglesElegido = null;
-                $tituloEn = ''; 
-                $cuerpoEn = '';
-
-                $textoLimpioEs = strtolower(strip_tags($cuerpoEs));
-
-                foreach ($entradasEn as $entradaEn) {
-                    similar_text($textoLimpioEs, $entradaEn['texto_limpio'], $porcentaje);
-                    if ($porcentaje > $mejorCoincidencia) {
-                        $mejorCoincidencia = $porcentaje;
-                        $bloqueInglesElegido = $entradaEn;
-                    }
-                }
-
-                if ($bloqueInglesElegido && $mejorCoincidencia > 15) { 
-                    $tituloEn = $bloqueInglesElegido['titulo_en'];
-                    $cuerpoEn = $bloqueInglesElegido['cuerpo_en'];
-                }
-
-                if (empty($tituloEn) || mb_strlen($tituloEn) > 150) {
-                    $tituloEn = $tituloEs; 
-                }
-
-                // Determinar fecha real
-                if (preg_match_all('/\b(20\d{2})\b/', $cuerpoEs, $matchesAnos)) {
-                    $fechaRealMySql = max($matchesAnos[1]) . "-01-01"; 
+                if ($parejaEn) {
+                    $tituloEn = !empty($parejaEn['titulo']) ? $parejaEn['titulo'] : $tituloEs;
+                    $fichaEn = $this->construirFichaConBaseEstructura($actividadEs['ficha_estructura'], $parejaEn['metadatos_valores']);
+                    $contenidoEn = $parejaEn['contenido'];
+                    echo "   ✅ Emparejado: \"{$tituloEs}\" -> \"{$tituloEn}\"\n";
                 } else {
-                    $fechaRealMySql = "2025-04-10"; 
+                    $tituloEn = $tituloEs;
+                    $fichaEn = '';
+                    $contenidoEn = '';
+                    echo "   ⚠️ Sin traducción óptima: \"{$tituloEs}\" (Se respalda con ES)\n";
                 }
 
-                // --- PROCESAR ESPAÑOL TOLERANTE A \N Y ETIQUETAS INLINE ---
-                // Estandarizamos los saltos de línea de texto plano convirtiéndolos en HTML
-                $cuerpoEsEstandarizado = str_replace(["\r\n", "\r", "\n"], '<br>', $cuerpoEs);
-                $lineasEs = preg_split('/(<p[^>]*>|<\/p>|<br\s*\/?>)/i', $cuerpoEsEstandarizado, -1, PREG_SPLIT_NO_EMPTY);
-                
-                $fichaEsArray = [];
-                $descripcionEsArray = [];
-
-                foreach ($lineasEs as $linea) {
-                    $lineaTrim = trim($linea);
-                    if (empty($lineaTrim) || strip_tags($lineaTrim) === '') continue;
-
-                    // Regex mejorada: detecta cualquier palabra clave seguida de ':' al inicio (limpia o con tags de estilo/strong)
-                    if (preg_match('/^(?:<[^>]+>)*\s*([A-Za-z0-9ÁÉÍÓÚáéíóúÑñ\s]{2,35})\s*(?:<\/[^>]+>)*\s*:\s*(.*)/u', $lineaTrim, $mFicha)) {
-                        $llave = trim(strip_tags($mFicha[1]));
-                        $valor = trim($mFicha[2]);
-                        
-                        if (mb_strlen($llave) < 40 && !empty($valor)) {
-                            $fichaEsArray[] = "<p><strong>" . ucfirst($llave) . ":</strong> " . trim(strip_tags($valor, '<a><em>i<b><strong>')) . "</p>";
-                            continue;
-                        }
-                    }
-
-                    // Si no es un elemento llave-valor de ficha, va íntegro a la descripción
-                    $descripcionEsArray[] = "<p>" . trim(strip_tags($lineaTrim, '<a><em>i<b><strong>')) . "</p>";
-                }
-
-                // --- PROCESAR INGLÉS TOLERANTE A \N Y ETIQUETAS INLINE ---
-                $fichaEnArray = [];
-                $descripcionEnArray = [];
-
-                if (!empty($cuerpoEn)) {
-                    $cuerpoEnEstandarizado = str_replace(["\r\n", "\r", "\n"], '<br>', $cuerpoEn);
-                    $lineasEn = preg_split('/(<p[^>]*>|<\/p>|<br\s*\/?>)/i', $cuerpoEnEstandarizado, -1, PREG_SPLIT_NO_EMPTY);
-                    
-                    foreach ($lineasEn as $linea) {
-                        $lineaTrim = trim($linea);
-                        if (empty($lineaTrim) || strip_tags($lineaTrim) === '') continue;
-
-                        if (preg_match('/^(?:<[^>]+>)*\s*([A-Za-z0-9\s]{2,35})\s*(?:<\/[^>]+>)*\s*:\s*(.*)/', $lineaTrim, $mFichaEn)) {
-                            $llaveEn = trim(strip_tags($mFichaEn[1]));
-                            $valorEn = trim($mFichaEn[2]);
-
-                            if (mb_strlen($llaveEn) < 40 && !empty($valorEn)) {
-                                $fichaEnArray[] = "<p><strong>" . ucfirst($llaveEn) . ":</strong> " . trim(strip_tags($valorEn, '<a><em>i<b><strong>')) . "</p>";
-                                continue;
-                            }
-                        }
-
-                        $descripcionEnArray[] = "<p>" . trim(strip_tags($lineaTrim, '<a><em>i<b><strong>')) . "</p>";
-                    }
-                }
-
-                $fichaEsFinal = implode("", $fichaEsArray);
-                $fichaEnFinal = implode("", $fichaEnArray);
-                $descEsFinal  = implode("", $descripcionEsArray);
-                $descEnFinal  = implode("", $descripcionEnArray);
-
-                // Sanitización anti-imágenes rotas
-                $fichaEsFinal = preg_replace('/<img[^>]*>/i', '', $fichaEsFinal);
-                $fichaEnFinal = preg_replace('/<img[^>]*>/i', '', $fichaEnFinal);
-                $descEsFinal  = preg_replace('/<img[^>]*>/i', '', $descEsFinal);
-                $descEnFinal  = preg_replace('/<img[^>]*>/i', '', $descEnFinal);
-
-                // CONSTRUCCIÓN DE JSONs INTEGRADOS 
-                $jsonTitulo      = json_encode(['es' => "<p><em>" . $tituloEs . "</em>: activaciones comunitarias</p><p></p>", 'en' => "<p><em>" . $tituloEn . "</em>: community activations</p><p></p>"], JSON_UNESCAPED_UNICODE);
-                $jsonDescripcion = json_encode(['es' => $descEsFinal, 'en' => $descEnFinal], JSON_UNESCAPED_UNICODE);
-                $jsonFicha       = json_encode(['es' => $fichaEsFinal, 'en' => $fichaEnFinal], JSON_UNESCAPED_UNICODE);
+                // Generar JSON estructurados para la tabla final
+                $jsonTitulo    = json_encode(['es' => $tituloEs, 'en' => $tituloEn], JSON_UNESCAPED_UNICODE);
+                $jsonContenido = json_encode(['es' => $actividadEs['contenido'], 'en' => $contenidoEn], JSON_UNESCAPED_UNICODE);
+                $jsonMetadatos = json_encode(['es' => $actividadEs['ficha'], 'en' => $fichaEn], JSON_UNESCAPED_UNICODE);
 
                 if (strlen($jsonTitulo) > 255) {
-                    continue;
+                    $jsonTitulo = json_encode(['es' => mb_substr($tituloEs, 0, 100), 'en' => mb_substr($tituloEn, 0, 100)], JSON_UNESCAPED_UNICODE);
                 }
 
-                if (DB::table('programas')->where('titulo', $jsonTitulo)->exists()) {
-                    continue;
-                }
-
+                $fechaCalculada = $this->calcularFechaCronologica($actividadEs['texto_plano_ficha']);
                 $currentTime = now();
 
-                // 5. INSERCIÓN TOTALMENTE RESILIENTE
+                // INSERCIÓN REAL EN LA BASE DE DATOS
                 DB::table('programas')->insert([
                     'estado'                  => 'public',
                     'tipo'                    => 'externo', 
-                    'fecha'                   => $fechaRealMySql, 
+                    'fecha'                   => $fechaCalculada, 
                     'titulo'                  => $jsonTitulo,       
-                    'contenido'               => $jsonDescripcion,  
+                    'contenido'               => $jsonContenido,  
                     'titulo_en'               => null,              
                     'contenido_en'            => null,              
-                    'metadatos'               => $jsonFicha,        
+                    'metadatos'               => $jsonMetadatos,        
                     'metadatos_en'            => null,              
                     'assign_to_expo_proyecto' => 1,                 
-                    'created_at'              => $currentTime,
-                    'updated_at'              => $currentTime,
+                    'created_at'              => $estrategia->created_at ?? $currentTime,
+                    'updated_at'              => $estrategia->updated_at ?? $currentTime,
                 ]);
-
-                echo "🟢 Migrado con éxito (Limpieza de saltos \\n efectuada): " . mb_substr($tituloEs, 0, 40) . "...\n";
             }
         }
+
+        echo "====================================================================\n";
+        echo "🎉 ¡Seeder finalizado! Todos los datos fueron migrados y emparejados.\n";
     }
 
-    private function convertirLineasHuorfanasEnTitulos($html)
+    private function buscarVerdaderoParEnConVotacionDefinitiva($actividadEs, $indexEs, $bloquesEn)
     {
-        if (empty($html)) return '';
-        $htmlEstandar = str_replace(["\r\n", "\r", "\n"], '<br>', $html);
-        $lineas = preg_split('/(<p[^>]*>|<\/p>|<br\s*\/?>)/i', $htmlEstandar, -1, PREG_SPLIT_NO_EMPTY);
-        $htmlModificado = [];
+        if (empty($bloquesEn)) return null;
 
-        foreach ($lineas as $linea) {
-            $lineaLimpia = trim(strip_tags($linea));
-            if (empty($lineaLimpia)) continue;
+        $mejorBloque = null;
+        $maxPuntuacion = -1;
 
-            if (mb_strlen($lineaLimpia) < 90 && 
-                !str_ends_with($lineaLimpia, '.') && 
-                !str_contains($lineaLimpia, ':')) {
-                $htmlModificado[] = "<h1>" . trim(strip_tags($linea, '<a><em>i<b><strong>')) . "</h1>";
-            } else {
-                $htmlModificado[] = $linea;
+        $tituloEsLimpio = mb_strtolower($actividadEs['titulo']);
+        $textoPlanoFichaEs = mb_strtolower($actividadEs['texto_plano_ficha']);
+        $cuerpoEsCrudo = mb_strtolower($actividadEs['titulo'] . ' ' . $actividadEs['texto_plano_ficha'] . ' ' . strip_tags($actividadEs['contenido']));
+
+        preg_match_all('/\b\d+\b/', $actividadEs['texto_plano_ficha'], $numEsMatches);
+        $numerosEs = $numEsMatches[0] ?? [];
+
+        foreach ($bloquesEn as $indexEn => $bloqueEn) {
+            $puntuacion = 0;
+            $tituloEnLimpio = mb_strtolower($bloqueEn['titulo']);
+            $textoFichaEnCrudo = mb_strtolower(implode(' ', $bloqueEn['metadatos_valores']));
+            $cuerpoEnCrudo = mb_strtolower($bloqueEn['titulo'] . ' ' . $textoFichaEnCrudo . ' ' . strip_tags($bloqueEn['contenido']));
+
+            // 1. Similitud de Títulos
+            similar_text($tituloEsLimpio, $tituloEnLimpio, $porcentajeTitulo);
+            $puntuacion += $porcentajeTitulo * 1.5;
+
+            // 2. Diccionario de Conceptos Humanos
+            $diccionarioConceptos = [
+                'milpa' => 'maizefield',
+                'maíz' => 'maize',
+                'niñas' => 'workshop',
+                'niños' => 'food',
+                'huerta' => 'agroecology',
+                'taller' => 'workshop',
+                'encuentro' => 'encounter',
+                'sabor' => 'flavor',
+                'verde' => 'green',
+                'nopal' => 'nopal'
+            ];
+            foreach ($diccionarioConceptos as $esKeyword => $enKeyword) {
+                if (str_contains($tituloEsLimpio, $esKeyword) && str_contains($tituloEnLimpio, $enKeyword)) {
+                    $puntuacion += 50; 
+                }
+            }
+
+            // 3. CRITERIO DE DESEMPATE CRÍTICO: Buscar nombres propios de facilitadores/aliados de la ficha ES en la ficha EN
+            $palabrasEs = array_filter(explode(' ', preg_replace('/[^\w\s]/u', '', $textoPlanoFichaEs)), function($w) { 
+                return mb_strlen($w) > 5 && !in_array($w, ['fecha', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre', 'habitantes', 'santa', 'maría', 'ribera', 'presencial']); 
+            });
+            
+            foreach ($palabrasEs as $palabra) {
+                if (str_contains($textoFichaEnCrudo, $palabra)) {
+                    $puntuacion += 60; // Gran peso acumulativo por coincidencia exacta de nombres en la ficha técnica
+                }
+            }
+
+            // 4. Coincidencia de Números (fechas y cantidades)
+            preg_match_all('/\b\d+\b/', $textoFichaEnCrudo, $numEnMatches);
+            $numerosEn = $numEnMatches[0] ?? [];
+            $coincidenciasNumericas = array_intersect($numerosEs, $numerosEn);
+            $puntuacion += count($coincidenciasNumericas) * 35;
+
+            // 5. Orden relativo original
+            if ($indexEs === $indexEn) {
+                $puntuacion += 15;
+            }
+
+            if ($puntuacion > $maxPuntuacion) {
+                $maxPuntuacion = $puntuacion;
+                $mejorBloque = $bloqueEn;
             }
         }
-        return implode("\n", $htmlModificado);
+
+        if ($maxPuntuacion < 20) {
+            return null;
+        }
+
+        return $mejorBloque;
+    }
+
+    private function extraerActividadesEs($html)
+    {
+        if (empty(trim($html))) return [];
+        $dom = new \DOMDocument();
+        libxml_use_internal_errors(true);
+        $dom->loadHTML('<?xml encoding="UTF-8"><div>' . $html . '</div>', LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        libxml_clear_errors();
+        $actividades = []; $actividadActual = null;
+        $nodoPrincipal = $dom->getElementsByTagName('div')->item(0);
+        if (!$nodoPrincipal) return [];
+        foreach ($nodoPrincipal->childNodes as $nodo) {
+            if ($nodo->nodeType === XML_TEXT_NODE && empty(trim($nodo->nodeValue))) continue;
+            $tag = strtolower($nodo->nodeName); $texto = trim($nodo->nodeValue); if (empty($texto)) continue;
+            if (in_array($tag, ['h1', 'h2', 'h3'])) {
+                if ($actividadActual) { $actividades[] = $this->finalizarActividadEs($actividadActual); }
+                $actividadActual = ['titulo' => $texto, 'ficha_lineas' => [], 'ficha_estructura' => [], 'contenido_lineas' => [], 'texto_plano_ficha' => ''];
+                continue;
+            }
+            if ($actividadActual) {
+                if (str_contains($texto, ':') && !preg_match('/^https?:\/\//i', $texto)) {
+                    $partes = explode(':', $texto, 2); $llave = trim($partes[0]); $valor = trim($partes[1] ?? '');
+                    $actividadActual['ficha_lineas'][] = "<p><strong>" . ucfirst($llave) . ":</strong> " . $valor . "</p>";
+                    $actividadActual['ficha_estructura'][] = $llave; $actividadActual['texto_plano_ficha'] .= ' ' . $texto;
+                } else { $actividadActual['contenido_lineas'][] = $dom->saveHTML($nodo); }
+            }
+        }
+        if ($actividadActual) { $actividades[] = $this->finalizarActividadEs($actividadActual); }
+        return $actividades;
+    }
+
+    private function finalizarActividadEs($act) {
+        return ['titulo' => $act['titulo'], 'ficha' => implode('', $act['ficha_lineas']), 'ficha_estructura' => $act['ficha_estructura'], 'contenido' => implode('', $act['contenido_lineas']), 'texto_plano_ficha' => $act['texto_plano_ficha']];
+    }
+
+    private function extraerBloquesRawEn($html)
+    {
+        if (empty(trim($html))) return [];
+        $dom = new \DOMDocument();
+        libxml_use_internal_errors(true);
+        $dom->loadHTML('<?xml encoding="UTF-8"><div>' . $html . '</div>', LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        libxml_clear_errors();
+        $bloques = []; $bloqueActual = null;
+        $nodoPrincipal = $dom->getElementsByTagName('div')->item(0);
+        if (!$nodoPrincipal) return [];
+        foreach ($nodoPrincipal->childNodes as $nodo) {
+            if ($nodo->nodeType === XML_TEXT_NODE && empty(trim($nodo->nodeValue))) continue;
+            $tag = strtolower($nodo->nodeName); $texto = trim($nodo->nodeValue); if (empty($texto)) continue;
+            if (in_array($tag, ['h1', 'h2', 'h3'])) {
+                if ($bloqueActual) { $bloques[] = $this->finalizarBloqueEn($bloqueActual); }
+                $bloqueActual = ['titulo' => $texto, 'valores_metadatos' => [], 'contenido_lineas' => []];
+                continue;
+            }
+            if ($bloqueActual) {
+                if (str_contains($texto, ':') && !preg_match('/^https?:\/\//i', $texto)) {
+                    $partes = explode(':', $texto, 2); $bloqueActual['valores_metadatos'][] = trim($partes[1] ?? '');
+                } else { $bloqueActual['contenido_lineas'][] = $dom->saveHTML($nodo); }
+            }
+        }
+        if ($bloqueActual) { $bloques[] = $this->finalizarBloqueEn($bloqueActual); }
+        return $bloques;
+    }
+
+    private function finalizarBloqueEn($bloque) {
+        return ['titulo' => $bloque['titulo'], 'metadatos_valores' => $bloque['valores_metadatos'], 'contenido' => implode('', $bloque['contenido_lineas'])];
+    }
+
+    private function construirFichaConBaseEstructura($estructuraEs, $valoresEn)
+    {
+        $htmlFicha = '';
+        $diccionario = [
+            'fecha' => 'Date',
+            'mediadores' => 'Mediators',
+            'facilitador' => 'Facilitator',
+            'facilitadora' => 'Facilitator',
+            'facilitadores' => 'Facilitators',
+            'ilustradores' => 'Illustrated by',
+            'aliados' => 'Allies',
+            'aliado' => 'Ally',
+            'participantes' => 'Participants',
+            'participan' => 'Participants',
+            'formato' => 'Format',
+            'coordina' => 'Coordinated by',
+            'monitores' => 'Monitors',
+            'productoras' => 'Producers'
+        ];
+
+        foreach ($estructuraEs as $index => $llaveEs) {
+            $llaveLimpia = mb_strtolower(trim($llaveEs));
+            $labelEn = isset($diccionario[$llaveLimpia]) ? $diccionario[$llaveLimpia] : ucfirst($llaveEs);
+            $valorEn = isset($valoresEn[$index]) ? $valoresEn[$index] : '';
+
+            if (!empty($valorEn)) {
+                $htmlFicha .= "<p><strong>{$labelEn}:</strong> {$valorEn}</p>";
+            }
+        }
+
+        return $htmlFicha;
+    }
+
+    private function calcularFechaCronologica($textoFicha)
+    {
+        $texto = mb_strtolower($textoFicha);
+        $ano = 2023; // Año base detectado en la mayoría de tus fichas
+        if (preg_match('/\b(20\d{2}|19\d{2})\b/', $texto, $match)) { $ano = intval($match[1]); }
+        $meses = ['enero' => '01', 'febrero' => '02', 'marzo' => '03', 'abril' => '04', 'mayo' => '05', 'junio' => '06', 'julio' => '07', 'agosto' => '08', 'septiembre' => '09', 'octubre' => '10', 'noviembre' => '11', 'diciembre' => '12'];
+        $mesSeleccionado = '01';
+        foreach ($meses as $nombre => $num) { if (str_contains($texto, $nombre)) { $mesSeleccionado = $num; } }
+        preg_match_all('/\b(\d{1,2})\b/', $texto, $matchesDias);
+        $diasValidos = [];
+        foreach ($matchesDias[1] as $posibleDia) { $d = intval($posibleDia); if ($d >= 1 && $d <= 31) { $diasValidos[] = $d; } }
+        if (!empty($diasValidos)) { return sprintf("%04d-%02d-%02d", $ano, $mesSeleccionado, end($diasValidos)); }
+        return "{$ano}-{$mesSeleccionado}-01";
     }
 }
