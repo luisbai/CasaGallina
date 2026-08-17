@@ -1,4 +1,4 @@
-name: Deploy a DigitalOcean
+name: CI/CD Pipeline - Casa Gallina Production
 
 on:
   push:
@@ -6,18 +6,57 @@ on:
       - main
 
 jobs:
-  deploy:
+  # Stage 1: Integración Continua (Test y Sintaxis)
+  test-and-lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Desplegar via SSH
-        uses: appleboy/ssh-action@master
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Configurar PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, pdo, pdo_mysql, gd
+
+      - name: Validar sintaxis de archivos PHP
+        run: |
+          find app/ -name "*.php" -exec php -l {} \;
+
+  # Stage 2: Despliegue a Producción (solo si pasa el test)
+  deploy:
+    needs: test-and-lint
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Desplegar via SSH a Producción
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          port: 22
           script: |
-            cd /var/www/laravel
-            git config --global --add safe.directory /var/www/laravel
+            set -e
+            cd /var/www/casagallina
+
+            echo "🔧 Configurando entorno Git..."
+            git config --global --add safe.directory /var/www/casagallina
+
+            echo "Actualizando repositorio..."
             git pull origin main
-            php artisan view:clear
-            php artisan cache:clear
+
+            echo "🐳 Reconstruyendo y levantando contenedores..."
+            docker compose up -d --build
+
+            echo "Ajustando permisos de almacenamiento..."
+            docker exec casagallina-app chmod -R 777 storage bootstrap/cache
+
+            echo "Optimizando cachés de Laravel..."
+            docker exec casagallina-app php artisan config:clear
+            docker exec casagallina-app php artisan route:clear
+            docker exec casagallina-app php artisan view:clear
+            docker exec casagallina-app php artisan storage:link
+
+            echo "Despliegue completado con éxito."

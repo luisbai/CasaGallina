@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: casagallina-app
+    container_name: casagallina-app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - .:/var/www
+      - ./storage/app/public:/var/www/storage/app/public
+    networks:
+      - casagallina-network
+
+  webserver:
+    image: nginx:alpine
+    container_name: casagallina-webserver
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:80"
+    volumes:
+      - .:/var/www
+      - ./docker/nginx:/etc/nginx/conf.d
+    depends_on:
+      - app
+    networks:
+      - casagallina-network
+
+  db:
+    image: mysql:8.0
+    container_name: casagallina-db
+    restart: unless-stopped
+    command: --performance-schema=OFF --innodb-buffer-pool-size=128M --max-connections=50
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE:-casagallina_db}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - casagallina-network
+
+volumes:
+  dbdata:
+
+networks:
+  casagallina-network:
+    driver: bridge

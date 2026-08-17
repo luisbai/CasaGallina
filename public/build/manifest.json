@@ -1,1 +1,13 @@
-{"resources/css/app.css":{"file":"assets/styles/style.min.css"},"resources/js/app.js":{"file":"assets/js/main.js"}}
+{
+  "resources/css/app.css": {
+    "file": "assets/app-B4ksmtKj.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-CxaOyXi-.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}
