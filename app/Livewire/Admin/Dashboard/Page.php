@@ -161,7 +161,7 @@ class Page extends Component
 
     #[Computed]
     public function recentDonaciones()
-    {
+    {   
         return Cache::remember('dashboard.recent_donaciones_stripe', 300, function () {
             Stripe::setApiKey(config('services.stripe.secret'));
 
