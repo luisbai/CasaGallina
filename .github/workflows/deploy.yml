@@ -41,13 +41,13 @@ jobs:
             set -e
             cd /var/www/casagallina
 
-            echo "🔧 Configurando entorno Git..."
+            echo "Configurando entorno Git..."
             git config --global --add safe.directory /var/www/casagallina
 
             echo "Actualizando repositorio..."
             git pull origin main
 
-            echo "🐳 Reconstruyendo y levantando contenedores..."
+            echo "Reconstruyendo y levantando contenedores..."
             docker compose up -d --build
 
             echo "Ajustando permisos de almacenamiento..."
