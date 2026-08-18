@@ -35,14 +35,29 @@
 			                        <tbody>
 		                            	@foreach ($boletines_year as $boletin)
 		                            		<tr>
-			                                    <td class="fecha">{{ $boletin->boletin_fecha }}</td>
-			                                    <td class="btn-icon">
-			                                        <a href="{{ asset('/storage/cache/' . $boletin->multimedia_es->filename) }}" download="boletin-{{ Carbon\Carbon::parse($boletin->boletin_fecha)->format('m-y') }}"><i class="fa fa-download"></i></a>
-			                                    </td>
-			                                    <td class="btn-icon">
-			                                    	<a href="{{ asset('/storage/cache/' . $boletin->multimedia_es->filename) }}" target="_blank"><i class="fa fa-eye"></i></a>
-			                                    </td>
-			                                </tr>
+                                             <td class="boletin-fecha-txt text-capitalize">
+                                                {{ !empty($boletin->boletin_fecha) ? \Carbon\Carbon::parse($boletin->boletin_fecha)->translatedFormat('F Y') : 'S/F' }}
+                                                </td>
+    <td class="btn-icon">
+        @if($boletin->multimedia_es?->filename)
+            <a href="{{ asset('/storage/cache/' . $boletin->multimedia_es->filename) }}"
+               download="boletin-{{ !empty($boletin->boletin_fecha) ? \Carbon\Carbon::parse($boletin->boletin_fecha)->format('m-y') : $boletin->id }}">
+                <i class="fa fa-download"></i>
+            </a>
+        @else
+            <span class="text-muted"><i class="fa fa-minus"></i></span>
+        @endif
+    </td>
+    <td class="btn-icon">
+        @if($boletin->multimedia_es?->filename)
+            <a href="{{ asset('/storage/cache/' . $boletin->multimedia_es->filename) }}" target="_blank">
+                <i class="fa fa-eye"></i>
+            </a>
+        @else
+            <span class="text-muted"><i class="fa fa-minus"></i></span>
+        @endif
+    </td>
+</tr>
 		                            	@endforeach
 			                        </tbody>
 			                    </table>

@@ -35,18 +35,30 @@
 									</thead>
 									<tbody>
 										@foreach ($boletines_year as $boletin)
-											<tr>
-												<td class="fecha">{{ $boletin->boletin_fecha }}</td>
-												<td class="btn-icon">
-													<a href="{{ $boletin->multimedia_en?->url }}"
-														download="boletin-{{ Carbon\Carbon::parse($boletin->boletin_fecha)->format('m-y') }}"><i
-															class="fa fa-download"></i></a>
-												</td>
-												<td class="btn-icon">
-													<a href="{{ $boletin->multimedia_en?->url }}" target="_blank"><i
-															class="fa fa-eye"></i></a>
-												</td>
-											</tr>
+										<tr>
+    <td class="boletin-fecha-txt">
+        {{ !empty($boletin->boletin_fecha) ? \Illuminate\Support\Str::ucfirst(\Carbon\Carbon::parse($boletin->boletin_fecha)->locale('en')->translatedFormat('F Y')) : 'N/D' }}
+    </td>
+    <td class="btn-icon">
+        @if(!empty($boletin->multimedia_en?->url))
+            <a href="{{ $boletin->multimedia_en->url }}"
+               download="newsletter-{{ !empty($boletin->boletin_fecha) ? \Carbon\Carbon::parse($boletin->boletin_fecha)->format('m-y') : $boletin->id }}">
+                <i class="fa fa-download"></i>
+            </a>
+        @else
+            <span class="text-muted"><i class="fa fa-minus"></i></span>
+        @endif
+    </td>
+    <td class="btn-icon">
+        @if(!empty($boletin->multimedia_en?->url))
+            <a href="{{ $boletin->multimedia_en->url }}" target="_blank">
+                <i class="fa fa-eye"></i>
+            </a>
+        @else
+            <span class="text-muted"><i class="fa fa-minus"></i></span>
+        @endif
+    </td>
+</tr>
 										@endforeach
 									</tbody>
 								</table>
