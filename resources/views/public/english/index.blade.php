@@ -4,8 +4,8 @@
     <div id="home-index">
         @if($banners && $banners->count() > 0)
             <!-- Custom Banner Slider -->
-            <section id="home-banner-slider" class="relative" x-data="{ 
-                                activeSlide: 0, 
+            <section id="home-banner-slider" class="relative" x-data="{
+                                activeSlide: 0,
                                 totalSlides: {{ $banners->count() }},
                                 autoplayInterval: null,
                                 intervalDuration: 5000,
@@ -673,7 +673,7 @@
 
 @section('pre_scripts')
     <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGklE-iy0n4O0x8SxRtDy4Q_lr7Cx2WPA&callback=initGoogleMaps"
+        src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google.maps_api_key') }}&callback=initGoogleMaps"
         async defer></script>
     <script>
         window.initGoogleMaps = function () {
