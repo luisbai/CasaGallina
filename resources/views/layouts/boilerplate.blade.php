@@ -182,7 +182,7 @@
                         <div class="certificados-links"
                             style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 320px; margin: 15px auto 0; align-items: center;">
                             <a href="https://www.ngosource.org/about-equivalency-determination-on-file-badge"
-                                target="_blank" rel="nofollow"><img src="/assets/images/footer/NGO.png" class="h-8"
+                                target="_blank" rel="nofollow"><img src="/assets/images/footer/NGO.svg" class="h-8"
                                     style="filter: brightness(0) invert(1); opacity: 0.8; object-fit: contain;"></a>
                             <a href="https://gratitude-network.org/who-we-support/2025-organizations/#" target="_blank"
                                 rel="nofollow"><img src="/assets/images/footer/GN.png" class="h-10"
@@ -193,8 +193,7 @@
                             <a href="https://www.cemefi.org/" target="_blank" rel="nofollow"><img
                                     src="/assets/images/footer/cemefi.png" class="h-10"
                                     style="filter: brightness(0) invert(1); opacity: 0.8; object-fit: contain;"></a>
-                            <a target="_blank" rel="nofollow"><img src="/assets/images/footer/cemefii.png" class="h-10"
-                                    style="filter: brightness(0) invert(1); opacity: 0.8; object-fit: contain;"></a>
+
                         </div>
                         <div class="address-text mt-4"><i>Casa Gallina es un proyecto comunitario<br>sin afiliación a
                                 partidos políticos.</i></div>
