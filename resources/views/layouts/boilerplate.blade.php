@@ -193,7 +193,8 @@
                             <a href="https://www.cemefi.org/" target="_blank" rel="nofollow"><img
                                     src="/assets/images/footer/cemefi.png" class="h-10"
                                     style="filter: brightness(0) invert(1); opacity: 0.8; object-fit: contain;"></a>
-
+                            <a target="_blank" rel="nofollow"><img src="/assets/images/footer/cemefi.png" class="h-10"
+                                    style="filter: brightness(0) invert(1); opacity: 0.8; object-fit: contain;"></a>
                         </div>
                         <div class="address-text mt-4"><i>Casa Gallina es un proyecto comunitario<br>sin afiliación a
                                 partidos políticos.</i></div>
