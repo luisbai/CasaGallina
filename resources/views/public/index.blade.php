@@ -4,8 +4,8 @@
 	<div id="home-index">
 		@if($banners && $banners->count() > 0)
 			<!-- Custom Banner Slider -->
-			<section id="home-banner-slider" class="relative" x-data="{ 
-												activeSlide: 0, 
+			<section id="home-banner-slider" class="relative" x-data="{
+												activeSlide: 0,
 												totalSlides: {{ $banners->count() }},
 												autoplayInterval: null,
 												intervalDuration: 5000,
@@ -108,7 +108,7 @@
             {{-- Fallback content --}}
             <div class="font-serif text-green-600 text-xl leading-6 py-4 md:px-16 pb-2 text-center">
                 Casa Gallina es una organización creativa y sin fines de lucro en México dedicada a promover la protección
-                del medio ambiente y la expresión cultural de las comunidades locales en todo el país. 
+                del medio ambiente y la expresión cultural de las comunidades locales en todo el país.
             </div>
 
             <div class="font-libre text-gray-600 leading-5 py-2 md:px-16 tracking-wide space-y-2 pb-8 text-leftq">
@@ -164,7 +164,7 @@
 				<div class="font-serif text-green-600 text-xl leading-6 py-4 md:px-16 pb-2 text-center">
 				En Casa Gallina, nos impulsa la creencia de que el aprendizaje colaborativo y las interacciones intersectoriales
 				 son la clave para mejorar el mundo que nos rodea. Trabajamos con artistas, educadores, científicos y vecinos
-				  apasionados para enriquecer nuestras comunidades, así como para crear y preservar la historia y las experiencias culturales. 
+				  apasionados para enriquecer nuestras comunidades, así como para crear y preservar la historia y las experiencias culturales.
 				</div>
 
 				<!-- Intro Description -->
@@ -175,7 +175,7 @@
 
 					<p>Comprometidos con una metodología rigurosa que incorpora las preocupaciones de la comunidad, Casa Gallina aborda
 						 todo nuestro trabajo a través de la cooperación y la asociación. Al trabajar con vecinos,
-						  gestores y organizaciones en la Ciudad de México y en todo el país, creamos experiencias, exposiciones 
+						  gestores y organizaciones en la Ciudad de México y en todo el país, creamos experiencias, exposiciones
 						  y publicaciones que abordan los desafíos específicos de la zona. Creamos herramientas y metodologías
 						   replicables y escalables para nuestros socios en todo México.</p>
 				</div>
@@ -518,114 +518,136 @@
 
 
 									<div class="col-md-6">
-										<div class="row">
-											<div class="col-sm-4">
-												<span
-													style="color: #F4B519; font-size: 130px; line-height: 170px; font-weight: 700;"
-													class="countup-element" data-number="15">15</span>
-											</div>
-											<div class="col-sm-8" style="text-align: left;">
-												<span
-													style="color: #F4B519; font-size: 30px; line-height: 35px; font-weight: 600;"><br>libros
-													publicados y<br>distribuidos a nivel<br> nacional:</span>
-											</div>
-											<div style="text-align: left;"> <span
-													style="color: #4a5d5a; font-size: 30px; line-height: 40px; font-weight: 500;">&nbsp&nbsp<i>Somos
-														maíz &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</i></span>
-												<img loading="lazy" src="/assets/images/home/numeralia/maiz.png"><br>
-											</div>
-											<div class="col-sm-9" style="text-align: left;">
-												<span
-													style="color: #4a5d5a; font-size: 28px; line-height: 36px; font-weight: 500;"><i>Constelaciones.
-														<br>Manual de herramientas<br>para mapeos colectivos</i></span>
-											</div>
-											<div class="col-sm-3" style="text-align: : left;">
-												<img loading="lazy" src="/assets/images/home/numeralia/constelaciones.png">
-											</div>
-											<br>
-											<br>
-											<div class="col-sm-10" style="text-align: left; padding-top: 25px">
-												<span
-													style="color: #4a5d5a; font-size: 28px; line-height: 36px; font-weight: 500;"><i>Interconexiones.
-														Criaturas<br>grandes y pequeñas en el<br>mismo mundo</i></span>
-											</div>
-											<div class="col-sm-2"
-												style="text-align: : left; padding-top: 25px; padding-left: 1px">
-												<img loading="lazy" src="/assets/images/home/numeralia/colibiinter.png"><br>
-											</div>
-											<div style="text-align: left;"> <span
-													style="color: #4a5d5a; font-size: 30px; line-height: 50px; font-weight: 500;">&nbsp&nbsp<i>La
-														huerta distribuida
-														&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</i></span>
-												<img loading="lazy" src="/assets/images/home/numeralia/hoja.png"><br><br>
-											</div>
-											<div style="text-align: left;"> <span
-													style="color: #4a5d5a; font-size: 30px; line-height: 40px; font-weight: 500;">&nbsp&nbsp<i>Vida
-														en mi entorno &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</i></span>
-												<img loading="lazy" src="/assets/images/home/numeralia/tlaco.png"><br>
-											</div>
+    <div class="row">
+        <div class="col-sm-4">
+            <span
+                style="color: #F4B519; font-size: 130px; line-height: 170px; font-weight: 700;"
+                class="countup-element" data-number="15">15</span>
+        </div>
+        <div class="col-sm-8" style="text-align: left;">
+            <span
+                style="color: #F4B519; font-size: 30px; line-height: 35px; font-weight: 600;"><br>libros
+                publicados y<br>distribuidos a nivel<br> nacional:</span>
+        </div>
 
-											<div style="text-align: left;"> <span
-													style="color: #4a5d5a; font-size: 30px; line-height: 40px; font-weight: 500;">&nbsp&nbsp<i>Hacemos
-														nuestro río &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</i></span>
-												<img loading="lazy" src="/assets/images/home/numeralia/rio.png"><br>
-											</div>
-											<div class="col-sm-8" style="text-align: left;">
-												<span
-													style="color: #4a5d5a; font-size: 30px; line-height: 40px; font-weight: 500;"><i>Sabores
-														y saberes<br>de la milpa</i></span>
-											</div>
-											<div class="col-sm-4" style="text-align: : left;">
-												<img loading="lazy" src="/assets/images/home/numeralia/ejote.png">
-											</div>
-											<div class="col-sm-11" style="text-align: left;">
-												<span
-													style="color: #4a5d5a; font-size: 30px; line-height: 40px; font-weight: 500;"><i>Trazar
-														lo común.<br>Los territorios que nos habitan</i></span>
-											</div>
-											<div class="col-sm-1" style="text-align: : left;">
-												<img loading="lazy" src="/assets/images/home/numeralia/ave.png">
-											</div>
-											<div class="col-sm-11" style="text-align: left;"> <span
-													style="color: #4a5d5a; font-size: 30px; line-height: 40px; font-weight: 500;"><i>Recrea.
-														Compilación de<br>estrategias educativas</i></span>
-											</div>
-											<div class="col-sm-1" style="text-align: : right;">
-												<img loading="lazy" src="/assets/images/home/numeralia/recrea.png"><br>
-											</div>
-											<div class="col-sm-8" style="text-align: left;">
-												<span
-													style="color: #4a5d5a; font-size: 30px; line-height: 40px; font-weight: 500;"><i>El
-														sentido de jardín</i></span>
-											</div>
-											<div class="col-sm-4" style="text-align: : left;">
-												<img loading="lazy" src="/assets/images/home/numeralia/sentido.png">
-											</div>
-											<div class="col-sm-11" style="text-align: left;">
-												<span
-													style="color: #4a5d5a; font-size: 30px; line-height: 40px; font-weight: 500;"><i>Alientos:
-														Siete apuntes<br>de mediación lectora</i></span>
-											</div>
-											<div class="col-sm-1" style="text-align: : left;">
-												<img loading="lazy" src="/assets/images/home/numeralia/alientos.png">
-											</div>
+        <!-- 1. Somos maíz -->
+        <div style="text-align: left; width: 100%; margin-bottom: 8px;">
+            <span style="color: #4a5d5a; font-size: 30px; line-height: 40px; font-weight: 500;">&nbsp;&nbsp;<i>Somos
+                    maíz &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></span>
+            <img loading="lazy" src="/assets/images/home/numeralia/maiz.png" style="max-height: 52px; width: auto; vertical-align: middle;"><br>
+        </div>
 
-											<div class="col-sm-6" style="padding-top: 25px; padding-bottom: 10;">
-												<span
-													style="color: #F4B519; font-size: 100px; line-height: 100px; font-weight: 700;">32%</span>
-											</div>
-											<div class="col-sm-6"
-												style="text-align: left; padding-top: 25px; padding-bottom: 10;">
-												<span
-													style="color: #F4B519; font-size: 23px; line-height: 30px; font-weight: 500;">del
-													tiraje consiste<br>en ediciones en 10<br>lenguas indígenas:</span>
-											</div>
-											<span
-												style="text-align: left;color: #4a5d5a; font-size: 28px; line-height: 36px; font-weight: 400;">&nbsp&nbsp&nbsp&nbspzapoteco,
-												maya, náhuatl, wixárika,<br>&nbsp&nbsp&nbsp&nbsppurépecha, ombeayiüts,
-												tsotsil<br>&nbsp&nbsp&nbsp&nbsptseltal, mazateco y totonaco</span><br><br>
-										</div>
-									</div>
+        <!-- 2. Constelaciones -->
+        <div class="col-sm-9" style="text-align: left;">
+            <span
+                style="color: #4a5d5a; font-size: 28px; line-height: 36px; font-weight: 500;"><i>Constelaciones.
+                    <br>Manual de herramientas<br>para mapeos colectivos</i></span>
+        </div>
+        <div class="col-sm-3" style="text-align: left;">
+            <img loading="lazy" src="/assets/images/home/numeralia/constelaciones.png" style="max-height: 54px; max-width: 54px; width: auto; height: auto;">
+        </div>
+        <br>
+        <br>
+
+        <!-- 3. Interconexiones -->
+        <div class="col-sm-9" style="text-align: left; padding-top: 25px">
+            <span
+                style="color: #4a5d5a; font-size: 28px; line-height: 36px; font-weight: 500;"><i>Interconexiones.
+                    Criaturas<br>grandes y pequeñas en el<br>mismo mundo</i></span>
+        </div>
+        <div class="col-sm-3"
+            style="text-align: left; padding-top: 35px; padding-left: 1px">
+            <img loading="lazy" src="/assets/images/home/numeralia/colibiinter.png" style="max-height: 54px; max-width: 54px; width: auto; height: auto;"><br>
+        </div>
+
+        <!-- 4. La huerta distribuida -->
+        <div style="text-align: left; width: 100%; margin-bottom: 8px;">
+            <span style="color: #4a5d5a; font-size: 30px; line-height: 50px; font-weight: 500;">&nbsp;&nbsp;<i>La
+                    huerta distribuida
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></span>
+            <img loading="lazy" src="/assets/images/home/numeralia/hoja.png" style="max-height: 52px; width: auto; vertical-align: middle;"><br><br>
+        </div>
+
+        <!-- 5. Vida en mi entorno -->
+        <div style="text-align: left; width: 100%; margin-bottom: 8px;">
+            <span style="color: #4a5d5a; font-size: 30px; line-height: 40px; font-weight: 500;">&nbsp;&nbsp;<i>Vida
+                    en mi entorno &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></span>
+            <img loading="lazy" src="/assets/images/home/numeralia/tlaco.png" style="max-height: 52px; width: auto; vertical-align: middle;"><br>
+        </div>
+
+        <!-- 6. Hacemos nuestro río -->
+        <div style="text-align: left; width: 100%; margin-bottom: 8px;">
+            <span style="color: #4a5d5a; font-size: 30px; line-height: 40px; font-weight: 500;">&nbsp;&nbsp;<i>Hacemos
+                    nuestro río &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></span>
+            <img loading="lazy" src="/assets/images/home/numeralia/rio.png" style="max-height: 52px; width: auto; vertical-align: middle;"><br>
+        </div>
+
+        <!-- 7. Sabores y saberes de la milpa -->
+        <div class="col-sm-9" style="text-align: left;">
+            <span
+                style="color: #4a5d5a; font-size: 30px; line-height: 40px; font-weight: 500;"><i>Sabores
+                    y saberes<br>de la milpa</i></span>
+        </div>
+        <div class="col-sm-3" style="text-align: left;">
+            <img loading="lazy" src="/assets/images/home/numeralia/ejote.png" style="max-height: 54px; max-width: 54px; width: auto; height: auto;">
+        </div>
+
+        <!-- 8. Trazar lo común -->
+        <div class="col-sm-9" style="text-align: left;">
+            <span
+                style="color: #4a5d5a; font-size: 28px; line-height: 36px; font-weight: 500;"><i>Trazar
+                    lo común.<br>Los territorios que nos habitan</i></span>
+        </div>
+        <div class="col-sm-3" style="text-align: left;">
+            <img loading="lazy" src="/assets/images/home/numeralia/ave.png" style="max-height: 54px; max-width: 54px; width: auto; height: auto;">
+        </div>
+
+        <!-- 9. Recrea -->
+        <div class="col-sm-9" style="text-align: left;">
+            <span
+                style="color: #4a5d5a; font-size: 28px; line-height: 36px; font-weight: 500;"><i>Recrea.
+                    Compilación de<br>estrategias educativas</i></span>
+        </div>
+        <div class="col-sm-3" style="text-align: left;">
+            <img loading="lazy" src="/assets/images/home/numeralia/recrea.png" style="max-height: 54px; max-width: 54px; width: auto; height: auto;"><br>
+        </div>
+
+        <!-- 10. El sentido del jardín -->
+        <div class="col-sm-9" style="text-align: left;">
+            <span
+                style="color: #4a5d5a; font-size: 28px; line-height: 36px; font-weight: 500;"><i>El
+                    sentido del jardín</i></span>
+        </div>
+        <div class="col-sm-3" style="text-align: left;">
+            <img loading="lazy" src="/assets/images/home/numeralia/sentido.png" style="max-height: 54px; max-width: 54px; width: auto; height: auto;">
+        </div>
+
+        <!-- 11. Alientos -->
+        <div class="col-sm-9" style="text-align: left;">
+            <span
+                style="color: #4a5d5a; font-size: 28px; line-height: 36px; font-weight: 500;"><i>Alientos:
+                    Siete apuntes<br>de mediación lectora</i></span>
+        </div>
+        <div class="col-sm-3" style="text-align: left;">
+            <img loading="lazy" src="/assets/images/home/numeralia/alientos.png" style="max-height: 54px; max-width: 54px; width: auto; height: auto;">
+        </div>
+
+        <div class="col-sm-6" style="padding-top: 25px; padding-bottom: 10px;">
+            <span
+                style="color: #F4B519; font-size: 100px; line-height: 100px; font-weight: 700;">32%</span>
+        </div>
+        <div class="col-sm-6"
+            style="text-align: left; padding-top: 25px; padding-bottom: 10px;">
+            <span
+                style="color: #F4B519; font-size: 23px; line-height: 30px; font-weight: 500;">del
+                tiraje consiste<br>en ediciones en 10<br>lenguas indígenas:</span>
+        </div>
+        <span
+            style="text-align: left;color: #4a5d5a; font-size: 28px; line-height: 36px; font-weight: 400;">&nbsp;&nbsp;&nbsp;&nbsp;zapoteco,
+            maya, náhuatl, wixárika,<br>&nbsp;&nbsp;&nbsp;&nbsp;purépecha, ombeayiüts,
+            tsotsil<br>&nbsp;&nbsp;&nbsp;&nbsp;tseltal, mazateco y totonaco</span><br><br>
+    </div>
+</div>
 								</div>
 							</div>
 							<br>
