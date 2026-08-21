@@ -351,6 +351,9 @@
                                     <p class="card-text">Para el desarrollo de los programas de 2024 se agradece el apoyo directo de:</p>
                                     <ul class="list-unstyled">
                                         <li>Fundación Coppel a través de su programa Caleidoscopio</li>
+                                        <li class="mt-2">
+                                            <a href="https://casagallina.org.mx/donaciones/campaign" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Campaña de fondeo colectivo: 10 años de trabajo comunitario</a>
+                                        </li>
 
                                     </ul>
                                 </div>
@@ -365,9 +368,7 @@
                                     <p class="card-text">Para el desarrollo de los programas de 2025 se agradece el apoyo directo de:</p>
                                     <ul class="list-unstyled">
                                         <li>Programa de Desarrollo de Arte y Cultura Citibanamex (DAC)</li>
-                                        <li class="mt-2">
-                                            <a href="https://casagallina.org.mx/donaciones/campaign" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Campaña de fondeo colectivo: 10 años de trabajo comunitario</a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </div>

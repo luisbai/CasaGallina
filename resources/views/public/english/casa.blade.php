@@ -346,6 +346,9 @@
                                     <p class="card-text">For the development of 2024 programs, we are grateful for the direct support of:</p>
                                     <ul class="list-unstyled">
                                         <li>Coppel Foundation through Kaleidoscope program</li>
+                                        <li class="mt-2">
+                                            <a href="https://casagallina.org.mx/en/donate/campaign" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Casa Gallina 10 Years of Community Work</a>
+                                        </li>
 
 
                                     </ul>
@@ -361,9 +364,7 @@
                                     <p class="card-text">For the development of 2025 programs, we are grateful for the direct support of:</p>
                                     <ul class="list-unstyled">
                                         <li>Programa de Desarrollo de Arte y Cultura Citibanamex (DAC)</li>
-                                        <li class="mt-2">
-                                            <a href="https://casagallina.org.mx/en/donate/campaign" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Casa Gallina 10 Years of Community Work</a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
