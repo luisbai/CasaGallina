@@ -5,7 +5,7 @@
         <section id="casa-banner">
             <img loading="lazy" src="/assets/images/casa/banner.jpg" class="img-fluid">
         </section>
-        
+
         <section id="casa-intro">
             <div class="container">
                 <div class="section-title text-center">
@@ -15,7 +15,7 @@
                 <div class="intro-text">
                     Casa Gallina comenzó en 2013 en una casa en la colonia Santa María la Ribera de la Ciudad de México. Durante la última década, el espacio se ha transformado para albergar una serie de programas que crean un diálogo entre los vecinos para intercambiar perspectivas sobre cuestiones y acciones culturales en la vida cotidiana a través del arte.
                 </div>
-        
+
                 <div class="intro-description">
                     <p>Los visitantes y huéspedes de Casa Gallina son bienvenidos al espacio comunitario como si vinieran a su propia casa, su hogar. Si bien el nombre "Casa Gallina" comenzó como una referencia interna por parte de los fundadores de la organización, el nombre habla de la naturaleza colaborativa de su programación y la conexión con la naturaleza en un entorno urbano.</p>
 
@@ -23,7 +23,7 @@
                 </div>
             </div>
         </section>
-        
+
         <div id="casa-info">
             <div class="container">
                 <div class="section-title text-center">
@@ -44,9 +44,9 @@
 
                         <div class="intro-description">
                             <p>Los aliados incluyen una red de organizaciones comunitarias, instituciones públicas y privadas, y colectivos en Aguascalientes, Campeche, Chiapas, Ciudad de México, Estado de México, Guerrero, Hidalgo, Jalisco, Michoacán, Morelos, Nayarit, Nuevo León, Oaxaca, Puebla, Querétaro, Quintana Roo, Sonora, Tabasco, Tlaxcala, Veracruz y Yucatán.</p>
-                            
+
                             <p>Miles de vecinos de la comunidad de Santa María la Ribera visitan Casa Gallina cada año, con una programación diseñada para que los residentes de todas las edades (0-90 años) participen y disfruten. Los espacios comunitarios y la programación de Casa Gallina son especialmente beneficiosos para los residentes de bajos ingresos que de otro modo tendrían dificultades para acceder a servicios como el laboratorio de informática, la biblioteca y las clases de cocina saludable.</p>
-                            
+
                             <p>Más allá del centro físico, la mayoría (65 %) de los participantes del programa de Casa Gallina son jóvenes menores de 20 años. Casa Gallina garantiza que las generaciones futuras crezcan con una comprensión intencional de su impacto en el mundo que los rodea, al centrarse en el desarrollo del liderazgo y la educación. El enfoque de Casa Gallina en preservar las tradiciones indígenas es particularmente relevante para las comunidades indígenas que enfrentan desafíos comunes en la sociedad mexicana.</p>
                         </div>
                     </div>
@@ -88,11 +88,11 @@
 
                 <div class="intro-description">
                     <p>La urbanización y el crecimiento de la población también han contribuido a una serie de males sociales, como el consumo excesivo, la contaminación del aire, el aislamiento social entre los adultos mayores, la pérdida de tradiciones indígenas y la inseguridad alimentaria, además de la abrumadora amenaza de la crisis climática.</p>
-                    
+
                     <p>Los enfoques centrados en la comunidad son esenciales para abordar los problemas interconectados del aislamiento social, la pérdida de tradiciones indígenas y la inseguridad alimentaria, y para generar acciones contra la crisis climática. Fomentar conexiones más profundas con la naturaleza y el acceso a los espacios verdes urbanos puede ayudar a frenar la pérdida de biodiversidad y ayudar a influir en las acciones y creencias proambientales de las personas, y generar acciones contra la crisis climática.</p>
-                    
+
                     <p>El objetivo general de Casa Gallina es fomentar fuertes conexiones con el mundo natural, así como con las culturas indígenas con el fin de promover la protección del medio ambiente y la expresión cultural en todo México. Para lograr este objetivo, cada programa de Casa Gallina crea experiencias colaborativas y diálogo a través del arte que inspira a las personas a tomar medidas para mejorar el mundo que las rodea. Los diversos programas de Casa Gallina buscan alcanzar los siguientes objetivos:</p>
-                    
+
                     <ol>
                         <li>Fomentar la empatía y la comprensión entre vecinos a través de eventos comunitarios, programas y exhibiciones de arte para que puedan colaborar para mejorar la vida diaria y promover el bien común.</li>
                         <li>Capacitar a los educadores para integrar perspectivas ambientales relevantes para el contexto en los planes de lecciones para mejorar las habilidades de pensamiento crítico de los jóvenes y acercar a los estudiantes a información sobre la naturaleza y el medio ambiente.</li>
@@ -113,25 +113,25 @@
             <div class="casa-marco-banner">
                 <img loading="lazy" src="/assets/images/casa/areas-banner.jpg" class="img-fluid">
             </div>
-             
+
             <div class="container">
                <div class="intro-text">
                Nuestro trabajo ayuda a desarrollar la resiliencia de la comunidad, aumentar el aprendizaje colaborativo y fomentar las conexiones entre
                 los miembros de la comunidad y las organizaciones aliadas, especialmente los jóvenes, los educadores, las personas mayores y las comunidades
-                 indígenas, para impulsar el cuidado y la conexión con el mundo natural. 
+                 indígenas, para impulsar el cuidado y la conexión con el mundo natural.
                 </div>
                 <div class="intro-description">
                     <h3>Teoría de cambio</h3>
-                    
+
                     <p class="casa-marco-text">
-                        Nuestra teoría del cambio se basa en la creencia de que fomentar el aprendizaje colaborativo y las interacciones interdisciplinarias entre profesionales de diversos campos conduce a soluciones innovadoras y un impacto social positivo. A través del diálogo facilitado, el intercambio de ideas, eventos y proyectos interdisciplinarios, Casa Gallina tiene como objetivo crear un entorno dinámico que fomente la creatividad, la resolución de problemas y la participación comunitaria.   
-                    </p>    
+                        Nuestra teoría del cambio se basa en la creencia de que fomentar el aprendizaje colaborativo y las interacciones interdisciplinarias entre profesionales de diversos campos conduce a soluciones innovadoras y un impacto social positivo. A través del diálogo facilitado, el intercambio de ideas, eventos y proyectos interdisciplinarios, Casa Gallina tiene como objetivo crear un entorno dinámico que fomente la creatividad, la resolución de problemas y la participación comunitaria.
+                    </p>
 
                     <h3>Metodologías centradas en la comunidad</h3>
 
                     <p>
                         El compromiso y la colaboración de la comunidad son fundamentales para el modelo de Casa Gallina. Nuestra organización no pretende ser
-                        un "referente intelectual", sino más bien un conector y articulador de la rica red de líderes comunitarios activos, gestores de cambio y protectores de territorios de México. Todo el trabajo de Casa Gallina se desarrolla en función de las necesidades específicas de las comunidades atendidas, a través de retroalimentación y conversaciones con vecinos, socios y participantes a través de actividades como el mapeo colectivo. Nos dedicamos a trabajar con otros en todas las iniciativas para crear comunidad, confianza y un ambiente colaborativo.   
+                        un "referente intelectual", sino más bien un conector y articulador de la rica red de líderes comunitarios activos, gestores de cambio y protectores de territorios de México. Todo el trabajo de Casa Gallina se desarrolla en función de las necesidades específicas de las comunidades atendidas, a través de retroalimentación y conversaciones con vecinos, socios y participantes a través de actividades como el mapeo colectivo. Nos dedicamos a trabajar con otros en todas las iniciativas para crear comunidad, confianza y un ambiente colaborativo.
                     </p>
                 </div>
             </div>
@@ -147,7 +147,7 @@
             <div class="casa-marco-banner">
                 <img loading="lazy" src="/assets/images/casa/seguimiento-banner.jpg" class="img-fluid">
             </div>
-             
+
             <div class="container">
                <div class="intro-text ">
                     Casa Gallina mide los resultados de la programación a través de una combinación de métricas cuantitativas y cualitativas. Registramos el número de escuelas, maestros y estudiantes que interactúan con las iniciativas de Casa Gallina, incluyendo el número de territorios y organizaciones aliadas donde se lleva a cabo la programación.
@@ -238,9 +238,9 @@
                                         </div>
                                     @endforeach
                                 @endisset
-                            </div>    
+                            </div>
                         </div>
-					
+
                         @if (isset($miembros_agrupados['patronos']) && count($miembros_agrupados['patronos']) > 0)
                             <div class="equipo-title">
                                 Patronos fundadores
@@ -255,9 +255,9 @@
                                     @endforeach
                                 @endisset
                             </div>
-                        
+
                         @endif
-                   
+
 					</div>
                 </div>
             </div>
@@ -335,6 +335,9 @@
                                     <p class="card-text">Para el desarrollo de los programas de 2023 se agradece el apoyo directo de:</p>
                                     <ul class="list-unstyled">
                                         <li>XTRA Congelados Naturales SA de CV a través del EFIARTES (Estímulo fiscal del artículo 190 de la LISR)</li>
+                                         <li class="mt-2">
+                                            <a href="https://casagallina.org.mx/estrategia/campana-de-fondeo-colectivo-recrea/26" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Campaña de fondeo colectivo: Recrea</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -348,9 +351,7 @@
                                     <p class="card-text">Para el desarrollo de los programas de 2024 se agradece el apoyo directo de:</p>
                                     <ul class="list-unstyled">
                                         <li>Fundación Coppel a través de su programa Caleidoscopio</li>
-                                        <li class="mt-2">
-                                            <a href="https://casagallina.org.mx/estrategia/campana-de-fondeo-colectivo-recrea/26" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Campaña de fondeo colectivo: Recrea</a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </div>

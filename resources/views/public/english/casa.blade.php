@@ -5,7 +5,7 @@
         <section id="casa-banner">
             <img loading="lazy" src="/assets/images/casa/banner.jpg" class="img-fluid">
         </section>
-        
+
         <section id="casa-intro">
             <div class="container">
                 <div class="section-title text-center">
@@ -15,7 +15,7 @@
                 <div class="intro-text">
                     Casa Gallina began in 2013 in a house in the Santa María la Ribera neighborhood of Mexico City. Over the last decade, the space has been transformed to house a series of programs that create dialogue among neighbors to exchange perspectives on cultural issues and actions in daily life through art.
                 </div>
-        
+
                 <div class="intro-description">
                     <p>Visitors and guests of Casa Gallina are welcomed to the community space as if they were coming to their own home. While the name "Casa Gallina" began as an internal reference by the organization's founders, the name speaks to the collaborative nature of its programming and the connection with nature in an urban environment.</p>
 
@@ -23,7 +23,7 @@
                 </div>
             </div>
         </section>
-        
+
         <div id="casa-info">
             <div class="container">
                 <div class="section-title text-center">
@@ -44,9 +44,9 @@
 
                         <div class="intro-description">
                             <p>These allies include a network of community organizations, public and private institutions, and collectives in Aguascalientes, Campeche, Chiapas, Mexico City, Estado de México, Guerrero, Hidalgo, Jalisco, Michoacán, Morelos, Nayarit, Nuevo León, Oaxaca, Puebla, Querétaro, Quintana Roo, Sonora, Tabasco, Tlaxcala, Veracruz, and Yucatán.</p>
-                            
+
                             <p>Thousands of neighbors from the Santa María la Ribera community visit Casa Gallina each year, with programming designed for residents of all ages (0-90 years) to participate and enjoy. Casa Gallina's community spaces and programming are especially beneficial for low-income residents who would otherwise have difficulty accessing services such as the computer lab, library, and healthy cooking classes.</p>
-                            
+
                             <p>Beyond the physical center, the majority (65%) of Casa Gallina's program participants are young people under 20 years old. Casa Gallina ensures that future generations grow up with an intentional understanding of their impact on the world around them, focusing on leadership development and education. Casa Gallina's focus on preserving indigenous traditions is particularly relevant to indigenous communities facing common challenges in Mexican society.</p>
                         </div>
                     </div>
@@ -88,11 +88,11 @@
 
                 <div class="intro-description">
                     <p>Urbanization and population growth have also contributed to a series of social ills, such as excessive consumption, air pollution, social isolation among older adults, the loss of indigenous traditions and food insecurity, in addition to the overwhelming threat of the climate crisis.</p>
-                    
+
                     <p>Community-centered approaches are essential to address the interconnected problems of social isolation, loss of indigenous traditions and food insecurity, and to generate actions against the climate crisis. Fostering deeper connections with nature and access to urban green spaces can help slow the loss of biodiversity and help influence people's pro-environmental actions and beliefs, and generate actions against the climate crisis.</p>
-                    
+
                     <p>Casa Gallina's general objective is to foster strong connections with the natural world, as well as with indigenous cultures in order to promote environmental protection and cultural expression throughout Mexico. To achieve this objective, each Casa Gallina program creates collaborative experiences and dialogue through art that inspires people to take action to improve the world around them. Casa Gallina's diverse programs seek to achieve the following objectives:</p>
-                    
+
                     <ol>
                         <li>Foster empathy and understanding among neighbors through community events, programs and art exhibitions so they can collaborate to improve daily life and promote the common good.</li>
                         <li>Train educators to integrate contextually relevant environmental perspectives into lesson plans to improve young people's critical thinking skills and bring students closer to information about nature and the environment.</li>
@@ -102,7 +102,7 @@
                 </div>
             </div>
         </div>
- 
+
         <div id="casa-marco">
             <div class="container">
                 <div class="section-title text-center">
@@ -113,7 +113,7 @@
             <div class="casa-marco-banner">
                 <img loading="lazy" src="/assets/images/casa/areas-banner.jpg" class="img-fluid">
             </div>
-             
+
             <div class="container">
                <div class="intro-text">
                Our work helps develop community resilience, increase collaborative learning, and foster connections between
@@ -122,16 +122,16 @@
                 </div>
                 <div class="intro-description">
                     <h3>Theory of Change</h3>
-                    
+
                     <p class="casa-marco-text">
-                        Our theory of change is based on the belief that fostering collaborative learning and interdisciplinary interactions among professionals from diverse fields leads to innovative solutions and positive social impact. Through facilitated dialogue, idea exchange, events, and interdisciplinary projects, Casa Gallina aims to create a dynamic environment that fosters creativity, problem-solving, and community engagement.   
-                    </p>    
+                        Our theory of change is based on the belief that fostering collaborative learning and interdisciplinary interactions among professionals from diverse fields leads to innovative solutions and positive social impact. Through facilitated dialogue, idea exchange, events, and interdisciplinary projects, Casa Gallina aims to create a dynamic environment that fosters creativity, problem-solving, and community engagement.
+                    </p>
 
                     <h3>Community-Centered Methodologies</h3>
 
                     <p>
                         Community engagement and collaboration are fundamental to Casa Gallina's model. Our organization does not aim to be
-                        an "intellectual reference," but rather a connector and articulator of Mexico's rich network of active community leaders, change agents, and territory protectors. All of Casa Gallina's work is developed based on the specific needs of the communities served, through feedback and conversations with neighbors, partners, and participants through activities such as collective mapping. We are dedicated to working with others in all initiatives to create community, trust, and a collaborative environment.   
+                        an "intellectual reference," but rather a connector and articulator of Mexico's rich network of active community leaders, change agents, and territory protectors. All of Casa Gallina's work is developed based on the specific needs of the communities served, through feedback and conversations with neighbors, partners, and participants through activities such as collective mapping. We are dedicated to working with others in all initiatives to create community, trust, and a collaborative environment.
                     </p>
                 </div>
             </div>
@@ -147,7 +147,7 @@
             <div class="casa-marco-banner">
                 <img loading="lazy" src="/assets/images/casa/seguimiento-banner.jpg" class="img-fluid">
             </div>
-             
+
             <div class="container">
                <div class="intro-text ">
                     Casa Gallina measures the results of its programming through a combination of quantitative and qualitative metrics. We track the number of schools, teachers, and students who interact with Casa Gallina's initiatives, including the number of territories and allied organizations where programming takes place.
@@ -237,7 +237,7 @@
                                 @endisset
                             </div>
                         </div>
-						
+
 						<div class="equipo-title">
                             Founding Patrons
                         </div>
@@ -251,7 +251,7 @@
                                 @endforeach
                             @endisset
                         </div>
-                   
+
                     </div>
                 </div>
             </div>
@@ -315,7 +315,7 @@
                                             <a href="https://casagallina.org.mx/en/strategy/campana-de-fondeo-colectivo-recreo-la-ciudad-en-donadora/23" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Crowdfunding Campaign: I Recreate the City through Donadora</a>
                                         </li>
                                         <li class="mt-2">
-                                            <a href="https://casagallina.org.mx/en/estrategia/campana-de-fondeo-colectivo-rinconcito-de-la-tierra/25" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Collective Funding Campaign: Earth Nook on Donadora</a>
+                                            <a href="https://casagallina.org.mx/en/strategy/campana-de-fondeo-colectivo-rinconcito-de-la-tierra/25" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Collective Funding Campaign: Earth Nook on Donadora</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -330,6 +330,9 @@
                                     <p class="card-text">For the development of 2023 programs, we are grateful for the direct support of:</p>
                                     <ul class="list-unstyled">
                                         <li>XTRA Congelados Naturales SA de CV through EFIARTES (Tax incentive from article 190 of LISR)</li>
+                                         <li class="mt-2">
+                                            <a href="https://casagallina.org.mx/en/strategy/collective-funding-campaign-recreate/26" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Crowdfunding Campaign: Recreate</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -343,9 +346,8 @@
                                     <p class="card-text">For the development of 2024 programs, we are grateful for the direct support of:</p>
                                     <ul class="list-unstyled">
                                         <li>Coppel Foundation through Kaleidoscope program</li>
-                                        <li class="mt-2">
-                                            <a href="https://casagallina.org.mx/en/strategy/collective-funding-campaign-recreate/26" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Crowdfunding Campaign: Recreate</a>
-                                        </li>
+
+
                                     </ul>
                                 </div>
                             </div>
@@ -408,6 +410,6 @@
                 </div>
             </div>
         @endforeach
-        
+
     </div>
 @endsection
