@@ -73,6 +73,8 @@ Route::get('/aliados', [PublicController::class, 'aliados'])->name('aliados');
 
 Route::get('/impacto', [PublicController::class, 'impacto'])->name('impacto');
 
+Route::view('/suscribete', 'public.suscripcion-boletin')->name('newsletter.subscribe');
+
 /*
 |--------------------------------------------------------------------------
 | Rutas Públicas
@@ -126,6 +128,9 @@ Route::group(['prefix' => 'en'], function() {
 
     Route::get('/impacto', [PublicController::class, 'impacto'])->name('english.impacto');
 
+    Route::view('/subscribe', 'public.english.subscribe')->name('english.newsletter.subscribe');
+
+
     Route::get('/admin/login', function () {
         return view('auth.login');
     })->name('english.login');
@@ -169,12 +174,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     // Route::get('espacios/create', [EspaciosController::class, 'create'])->name('admin.espacios.create'); // Handled by Page modal
     // Route::post('espacios', [EspaciosController::class, 'store'])->name('admin.espacios.store'); // Handled by Page store
     Route::get('espacios/{id}/edit', \App\Modules\Space\Presentation\Livewire\Admin\SpaceEdit::class)->name('admin.spaces.edit'); // Corrected name to admin.spaces.edit
-    // Route: 'admin.espacios.edit' is used in views, let's keep alias or update views. 
+    // Route: 'admin.espacios.edit' is used in views, let's keep alias or update views.
     // I updated views to use 'admin.spaces.edit'.
     // Let's check page.blade.php content I just sent. I used 'admin.spaces.edit'.
     // Legacy used 'admin.espacios.edit'.
     // I need to support both or verify usages.
-    
+
     // Route::put('espacios/{id}', [EspaciosController::class, 'update'])->name('admin.espacios.update'); // Handled by Edit update
     // Route::get('espacios/{id}/delete', [EspaciosController::class, 'delete'])->name('admin.espacios.delete'); // Handled by Page delete
 
