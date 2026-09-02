@@ -40,10 +40,10 @@
                                                 </td>
     <td class="btn-icon">
         @if($boletin->multimedia_es?->filename)
-            <a href="{{ asset('/storage/cache/' . $boletin->multimedia_es->filename) }}"
-               download="boletin-{{ !empty($boletin->boletin_fecha) ? \Carbon\Carbon::parse($boletin->boletin_fecha)->format('m-y') : $boletin->id }}">
-                <i class="fa fa-download"></i>
-            </a>
+           <a href="{{ $boletin->multimedia_es->url }}"
+           download="boletin-{{ !empty($boletin->boletin_fecha) ? \Carbon\Carbon::parse($boletin->boletin_fecha)->format('m-y') : $boletin->id }}">
+            <i class="fa fa-download"></i>
+        </a>
         @else
             <span class="text-muted"><i class="fa fa-minus"></i></span>
         @endif
