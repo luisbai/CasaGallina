@@ -15,9 +15,14 @@
                                 <div class="publicacion">
                                     <div class="publicacion-image">
                                         <a href="/publicacion/{{ \Str::slug(strip_tags($publicacion->titulo)) }}/{{ $publicacion->id }}">
-                                            <img src='/storage/cache/{{ $publicacion->publicacion_thumbnail->filename  }}'>
+                                            @php
+                                                $thumb = $publicacion->publicacion_thumbnail?->filename;
+                                                $src = $thumb
+                                                    ? asset('storage/' . (str_starts_with($thumb, 'cache/') ? $thumb : 'cache/' . ltrim($thumb, '/')))
+                                                    : asset('storage/no-image.svg');
+                                            @endphp
+                                            <img src="{{ $src }}" alt="{{ strip_tags($publicacion->titulo) }}">
                                         </a>
-                                        
                                     </div>
                                     <div class="publicacion-title">
                                         <a href="/publicacion/{{ \Str::slug(strip_tags($publicacion->titulo)) }}/{{ $publicacion->id }}">{!! $publicacion->titulo !!}</a>
@@ -27,7 +32,6 @@
                         @endforeach
                     </ul>
                 </div>
-                
             </div>
 
             <div class="section-title text-center my-5">
@@ -42,7 +46,13 @@
                                 <div class="publicacion">
                                     <div class="publicacion-image">
                                         <a href="/publicacion/{{ \Str::slug(strip_tags($publicacion->titulo)) }}/{{ $publicacion->id }}">
-                                            <img src='/storage/cache/{{ $publicacion->publicacion_thumbnail->filename  }}'>
+                                            @php
+                                                $thumb = $publicacion->publicacion_thumbnail?->filename;
+                                                $src = $thumb
+                                                    ? asset('storage/' . (str_starts_with($thumb, 'cache/') ? $thumb : 'cache/' . ltrim($thumb, '/')))
+                                                    : asset('storage/no-image.svg');
+                                            @endphp
+                                            <img src="{{ $src }}" alt="{{ strip_tags($publicacion->titulo) }}">
                                         </a>
                                     </div>
                                     <div class="publicacion-title">
@@ -53,7 +63,6 @@
                         @endforeach
                     </ul>
                 </div>
-                
             </div>
         </div>
     </div>
