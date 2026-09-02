@@ -76,7 +76,7 @@ class PublicationService
             return $multimedia->id;
         } else {
             // Store file directly
-            $file->storeAs('public/cache', $filename);
+            $file->storeAs('cache', $filename, 'public');
 
             $multimedia = Multimedia::create([
                 'filename' => 'cache/' . $filename,
