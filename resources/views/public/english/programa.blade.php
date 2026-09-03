@@ -71,27 +71,27 @@
                     </div>
 
                     <div class="relative mb-12" x-data="{
-                            currentIndex: 0,
-                            itemsPerPage: window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1),
-                            totalItems: {{ $estrategias_locales_tags->count() }},
-                            get totalSlides() { return Math.ceil(this.totalItems / this.itemsPerPage) },
-                            get canGoNext() { return this.currentIndex < this.totalSlides - 1 },
-                            get canGoPrev() { return this.currentIndex > 0 },
-                            get translateX() { return -(this.currentIndex * (100 / this.itemsPerPage)) },
-                            next() { if (this.canGoNext) this.currentIndex++ },
-                            prev() { if (this.canGoPrev) this.currentIndex-- },
-                            goToSlide(index) { this.currentIndex = index },
-                            updateItemsPerPage() {
-                                const oldItemsPerPage = this.itemsPerPage;
-                                this.itemsPerPage = window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1);
-                                if (oldItemsPerPage !== this.itemsPerPage) {
-                                    this.currentIndex = Math.min(this.currentIndex, this.totalSlides - 1);
-                                }
-                            }
-                        }" x-init="
-                            updateItemsPerPage();
-                            window.addEventListener('resize', () => updateItemsPerPage());
-                        ">
+        currentIndex: 0,
+        itemsPerPage: window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1),
+        totalItems: {{ $estrategias_locales_tags->count() }},
+        get maxIndex() { return Math.max(0, this.totalItems - this.itemsPerPage) },
+        get canGoNext() { return this.currentIndex < this.maxIndex },
+        get canGoPrev() { return this.currentIndex > 0 },
+        get translateX() { return -(this.currentIndex * (100 / this.itemsPerPage)) },
+        next() { if (this.canGoNext) this.currentIndex++ },
+        prev() { if (this.canGoPrev) this.currentIndex-- },
+        goToSlide(index) { this.currentIndex = Math.min(index, this.maxIndex) },
+        updateItemsPerPage() {
+            const oldItemsPerPage = this.itemsPerPage;
+            this.itemsPerPage = window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1);
+            if (oldItemsPerPage !== this.itemsPerPage) {
+                this.currentIndex = Math.min(this.currentIndex, this.maxIndex);
+            }
+        }
+    }" x-init="
+        updateItemsPerPage();
+        window.addEventListener('resize', () => updateItemsPerPage());
+    ">
                         <!-- Carousel Container -->
                         <div class="overflow-hidden">
                             <div class="flex transition-transform duration-500 ease-in-out"

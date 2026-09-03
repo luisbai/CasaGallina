@@ -61,7 +61,7 @@
                         <!-- Intro Text -->
                         <div class="font-serif text-green-600 text-xl leading-6 py-4 md:px-16 pb-2 text-center">
                         Articula las actividades y procesos que desarrollamos en Santa María la Ribera,
-                         en diálogo directo con quienes habitan el barrio. 
+                         en diálogo directo con quienes habitan el barrio.
                         </div>
 
                         <!-- Intro Description -->
@@ -73,27 +73,27 @@
                     </div>
 
                     <div class="relative mb-12" x-data="{
-                            currentIndex: 0,
-                            itemsPerPage: window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1),
-                            totalItems: {{ $estrategias_locales_tags->count() }},
-                            get totalSlides() { return Math.ceil(this.totalItems / this.itemsPerPage) },
-                            get canGoNext() { return this.currentIndex < this.totalSlides - 1 },
-                            get canGoPrev() { return this.currentIndex > 0 },
-                            get translateX() { return -(this.currentIndex * (100 / this.itemsPerPage)) },
-                            next() { if (this.canGoNext) this.currentIndex++ },
-                            prev() { if (this.canGoPrev) this.currentIndex-- },
-                            goToSlide(index) { this.currentIndex = index },
-                            updateItemsPerPage() {
-                                const oldItemsPerPage = this.itemsPerPage;
-                                this.itemsPerPage = window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1);
-                                if (oldItemsPerPage !== this.itemsPerPage) {
-                                    this.currentIndex = Math.min(this.currentIndex, this.totalSlides - 1);
-                                }
-                            }
-                        }" x-init="
-                            updateItemsPerPage();
-                            window.addEventListener('resize', () => updateItemsPerPage());
-                        ">
+        currentIndex: 0,
+        itemsPerPage: window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1),
+        totalItems: {{ $estrategias_locales_tags->count() }},
+        get maxIndex() { return Math.max(0, this.totalItems - this.itemsPerPage) },
+        get canGoNext() { return this.currentIndex < this.maxIndex },
+        get canGoPrev() { return this.currentIndex > 0 },
+        get translateX() { return -(this.currentIndex * (100 / this.itemsPerPage)) },
+        next() { if (this.canGoNext) this.currentIndex++ },
+        prev() { if (this.canGoPrev) this.currentIndex-- },
+        goToSlide(index) { this.currentIndex = Math.min(index, this.maxIndex) },
+        updateItemsPerPage() {
+            const oldItemsPerPage = this.itemsPerPage;
+            this.itemsPerPage = window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1);
+            if (oldItemsPerPage !== this.itemsPerPage) {
+                this.currentIndex = Math.min(this.currentIndex, this.maxIndex);
+            }
+        }
+    }" x-init="
+        updateItemsPerPage();
+        window.addEventListener('resize', () => updateItemsPerPage());
+    ">
                         <!-- Carousel Container -->
                         <div class="overflow-hidden">
                             <div class="flex transition-transform duration-500 ease-in-out"
@@ -177,28 +177,47 @@
                         </div>
                     </div>
 
+
+
                     <div class="relative mb-12" x-data="{
-                            currentIndex: 0,
-                            itemsPerPage: window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1),
-                            totalItems: {{ $estrategias_externas_tags->count() }},
-                            get totalSlides() { return Math.ceil(this.totalItems / this.itemsPerPage) },
-                            get canGoNext() { return this.currentIndex < this.totalSlides - 1 },
-                            get canGoPrev() { return this.currentIndex > 0 },
-                            get translateX() { return -(this.currentIndex * (100 / this.itemsPerPage)) },
-                            next() { if (this.canGoNext) this.currentIndex++ },
-                            prev() { if (this.canGoPrev) this.currentIndex-- },
-                            goToSlide(index) { this.currentIndex = index },
-                            updateItemsPerPage() {
-                                const oldItemsPerPage = this.itemsPerPage;
-                                this.itemsPerPage = window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1);
-                                if (oldItemsPerPage !== this.itemsPerPage) {
-                                    this.currentIndex = Math.min(this.currentIndex, this.totalSlides - 1);
-                                }
-                            }
-                        }" x-init="
-                            updateItemsPerPage();
-                            window.addEventListener('resize', () => updateItemsPerPage());
-                        ">
+        currentIndex: 0,
+        itemsPerPage: window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1),
+        totalItems: {{ $estrategias_locales_tags->count() }},
+        get totalSlides() {
+            return Math.ceil(this.totalItems / this.itemsPerPage);
+        },
+        get canGoNext() {
+            return this.currentIndex < this.totalSlides - 1;
+        },
+        get canGoPrev() {
+            return this.currentIndex > 0;
+        },
+        get translateX() {
+            // Se calcula el porcentaje exacto de salto según el total de items en la tira
+            const maxTranslate = Math.max(0, (this.totalItems - this.itemsPerPage) * (100 / this.totalItems));
+            const targetTranslate = this.currentIndex * this.itemsPerPage * (100 / this.totalItems);
+            return -Math.min(targetTranslate, maxTranslate);
+        },
+        next() {
+            if (this.canGoNext) this.currentIndex++;
+        },
+        prev() {
+            if (this.canGoPrev) this.currentIndex--;
+        },
+        goToSlide(index) {
+            this.currentIndex = index;
+        },
+        updateItemsPerPage() {
+            const oldItemsPerPage = this.itemsPerPage;
+            this.itemsPerPage = window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1);
+            if (oldItemsPerPage !== this.itemsPerPage) {
+                this.currentIndex = Math.min(this.currentIndex, this.totalSlides - 1);
+            }
+        }
+    }" x-init="
+        updateItemsPerPage();
+        window.addEventListener('resize', () => updateItemsPerPage());
+    ">
                         <!-- Carousel Container -->
                         <div class="overflow-hidden">
                             <div class="flex transition-transform duration-500 ease-in-out"
