@@ -133,27 +133,40 @@
         </section>
 
 		<section id="home-estrategias" class="py-16 bg-white" x-data="{
-										currentIndex: 0,
-										itemsPerPage: window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1),
-										totalItems: {{ $programa_tags->count() }},
-										get totalSlides() { return Math.ceil(this.totalItems / this.itemsPerPage) },
-										get canGoNext() { return this.currentIndex < this.totalSlides - 1 },
-										get canGoPrev() { return this.currentIndex > 0 },
-										get translateX() { return -(this.currentIndex * (100 / this.itemsPerPage)) },
-										next() { if (this.canGoNext) this.currentIndex++ },
-										prev() { if (this.canGoPrev) this.currentIndex-- },
-										goToSlide(index) { this.currentIndex = index },
-										updateItemsPerPage() {
-											const oldItemsPerPage = this.itemsPerPage;
-											this.itemsPerPage = window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1);
-											if (oldItemsPerPage !== this.itemsPerPage) {
-												this.currentIndex = Math.min(this.currentIndex, this.totalSlides - 1);
-											}
-										}
-									}" x-init="
-										updateItemsPerPage();
-										window.addEventListener('resize', () => updateItemsPerPage());
-									">
+    currentIndex: 0,
+    itemsPerPage: window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1),
+    totalItems: {{ $programa_tags->count() }},
+    get maxIndex() {
+        return Math.max(0, this.totalItems - this.itemsPerPage)
+    },
+    get canGoNext() {
+        return this.currentIndex < this.maxIndex
+    },
+    get canGoPrev() {
+        return this.currentIndex > 0
+    },
+    get translateX() {
+        return -(this.currentIndex * (100 / this.itemsPerPage))
+    },
+    next() {
+        if (this.canGoNext) this.currentIndex++
+    },
+    prev() {
+        if (this.canGoPrev) this.currentIndex--
+    },
+    goToSlide(index) {
+        this.currentIndex = Math.min(Math.max(0, index), this.maxIndex)
+    },
+    updateItemsPerPage() {
+        this.itemsPerPage = window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1);
+        if (this.currentIndex > this.maxIndex) {
+            this.currentIndex = this.maxIndex;
+        }
+    }
+}" x-init="
+    updateItemsPerPage();
+    window.addEventListener('resize', () => updateItemsPerPage());
+">
 			<div class="container mx-auto">
 				<!-- Section Title -->
 				<div class="text-center border-b-2 border-green-600 pb-2 mb-2">
