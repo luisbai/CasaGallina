@@ -409,25 +409,36 @@ class Form extends Component
     /**
      * Translate all publication fields at once
      */
-    public function translateAllFields(): void
+  public function translateAllFields(): void
     {
-        $this->translationError = null; // Reset error
+        $this->translationError = null;
 
         $fieldsToTranslate = [
-            'title' => $this->title,
-            'publication_date' => $this->publication_date,
-            'editorial_coordination' => $this->editorial_coordination,
-            'design' => $this->design,
-            'texts' => $this->texts,
-            'synopsis' => $this->synopsis,
-            'additional_content' => $this->additional_content,
+            'title' => trim($this->title),
+            'editorial_coordination' => trim($this->editorial_coordination),
+            'design' => trim($this->design),
+            'texts' => trim($this->texts),
+            'synopsis' => trim($this->synopsis),
+            'additional_content' => trim($this->additional_content),
         ];
 
-        // Filter out empty values
+        // Incluir opcionales 1 al 7
+        for ($i = 1; $i <= 7; $i++) {
+            $tVal = trim($this->{"optional_field_{$i}_title"} ?? '');
+            $cVal = trim($this->{"optional_field_{$i}"} ?? '');
+
+            if ($tVal !== '') {
+                $fieldsToTranslate["optional_field_{$i}_title"] = $tVal;
+            }
+            if ($cVal !== '') {
+                $fieldsToTranslate["optional_field_{$i}"] = $cVal;
+            }
+        }
+
         $fieldsToTranslate = array_filter($fieldsToTranslate, fn($value) => !empty($value));
 
         if (empty($fieldsToTranslate)) {
-            Flux::toast('No hay campos en español para traducir', variant: 'warning');
+            Flux::toast('No hay campos para traducir', variant: 'warning');
             return;
         }
 
@@ -435,26 +446,52 @@ class Form extends Component
             $translator = new GeminiTranslationService();
             $translatedFields = $translator->translateBatch($fieldsToTranslate);
 
-            foreach ($translatedFields as $field => $translatedContent) {
-                if ($translatedContent !== null) {
-                    $this->{$field . '_en'} = $translatedContent;
+            // 1. Asignación directa de campos fijos
+            if (isset($translatedFields['title'])) {
+                $this->title_en = $translatedFields['title'];
+            }
+            if (isset($translatedFields['editorial_coordination'])) {
+                $this->editorial_coordination_en = $translatedFields['editorial_coordination'];
+            }
+            if (isset($translatedFields['design'])) {
+                $this->design_en = $translatedFields['design'];
+            }
+            if (isset($translatedFields['texts'])) {
+                $this->texts_en = $translatedFields['texts'];
+            }
+            if (isset($translatedFields['synopsis'])) {
+                $this->synopsis_en = $translatedFields['synopsis'];
+            }
+            if (isset($translatedFields['additional_content'])) {
+                $this->additional_content_en = $translatedFields['additional_content'];
+            }
+
+            // 2. Asignación directa y exacta de opcionales 1 al 7
+            for ($i = 1; $i <= 7; $i++) {
+                if (isset($translatedFields["optional_field_{$i}_title"])) {
+                    $this->{"optional_field_{$i}_en_title"} = $translatedFields["optional_field_{$i}_title"];
+                }
+                if (isset($translatedFields["optional_field_{$i}"])) {
+                    $this->{"optional_field_{$i}_en"} = $translatedFields["optional_field_{$i}"];
                 }
             }
 
-            $count = count($fieldsToTranslate);
+            // Copiar fecha
+            if (!empty($this->publication_date) && empty($this->publication_date_en)) {
+                $this->publication_date_en = $this->publication_date;
+            }
+
+            $count = count($translatedFields);
             Flux::toast(
                 heading: 'Traducción completada',
-                text: "Se tradujeron {$count} campos correctamente",
+                text: "Se procesaron {$count} campos",
                 variant: 'success'
             );
+
         } catch (\Exception $e) {
             \Log::error('Translation error', ['message' => $e->getMessage()]);
-            $this->translationError = 'Error de traducción: ' . $e->getMessage(); // Set error property
-            Flux::toast(
-                heading: 'Error de traducción',
-                text: $e->getMessage(),
-                variant: 'danger'
-            );
+            $this->translationError = 'Error de traducción: ' . $e->getMessage();
+            Flux::toast($e->getMessage(), variant: 'danger');
         }
     }
 

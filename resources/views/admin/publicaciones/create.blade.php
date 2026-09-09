@@ -74,149 +74,138 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                
 
-                                
-                                
-                                <div class="form-group">
-                                    <label>Título</label>
-                                    <input type="text" name="titulo" placeholder="Título de la publicación" class="form-control tinymce" id="input-titulo" required>
-                                </div>
 
-                                <div class="form-group">
-                                    <input type="text" name="campo_opcional_1_titulo" placeholder="Campo Opcional 1 Título" class="form-control"">
-                                    <textarea name="campo_opcional_1" rows="3"  placeholder="Campo Opcional 1" class="form-control"></textarea>
-                                </div>
 
-                                <div class="form-group">
-                                    <input type="text" name="campo_opcional_5_titulo" placeholder="Campo Opcional 5 Título" class="form-control">
-                                    <textarea name="campo_opcional_5" rows="3"  placeholder="Campo Opcional 5" class="form-control"></textarea>
-                                </div>
 
-                                <div class="form-group">
-                                    <label>Coordinación Editorial</label>
-                                    <textarea name="coordinacion_editorial" rows="3"  placeholder="Coordinación Editorial" class="form-control"></textarea>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label>Diseño</label>
-                                    <input type="text" name="diseno" placeholder="Diseño" class="form-control">
-                                </div>
+                            <div class="space-y-6">
+    <!-- Título -->
+    <flux:editor toolbar="italic bold" label="Título" wire:model.blur="title"
+        placeholder="Título de la publicación" class="h-28" />
 
-                                <div class="form-group">
-                                    <label>Textos</label>
-                                    <input type="text" name="textos" placeholder="Textos" class="form-control">
-                                </div>
+    <!-- Fecha -->
+    <flux:date-picker label="Fecha Publicación" wire:model="publication_date"
+        placeholder="Selecciona una fecha" />
 
-                                <div class="form-group">
-                                    <input type="text" name="campo_opcional_2_titulo" placeholder="Campo Opcional 2 Título" class="form-control">
-                                    <textarea name="campo_opcional_2" rows="3"  placeholder="Campo Opcional 2" class="form-control"></textarea>
-                                </div>
+    <!-- Créditos y Detalles Fijos (2 columnas) -->
+    <div class="p-5 bg-gray-50 border border-gray-200 rounded-xl space-y-4">
+        <flux:subheading size="sm" class="!font-semibold !text-forest-700">
+            Créditos y Detalles
+        </flux:subheading>
 
-                                <div class="form-group">
-                                    <input type="text" name="campo_opcional_6_titulo" placeholder="Campo Opcional 6 Título" class="form-control">
-                                    <textarea name="campo_opcional_6" rows="3"  placeholder="Campo Opcional 6" class="form-control"></textarea>
-                                </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <flux:input label="Diseño" wire:model="diseno" placeholder="Nombre del diseñador..." />
+            <flux:input label="Textos" wire:model="textos" placeholder="Autores de textos..." />
+        </div>
 
-                                <div class="form-group">
-                                    <input type="text" name="campo_opcional_7_titulo" placeholder="Campo Opcional 7 Título" class="form-control">
-                                    <textarea name="campo_opcional_7" rows="3"  placeholder="Campo Opcional 7" class="form-control"></textarea>
-                                </div>
+        <div>
+            <flux:textarea label="Coordinación Editorial" wire:model="editorial_coordination"
+                placeholder="Coordinación Editorial" rows="3" />
+        </div>
+    </div>
 
-                                <div class="form-group">
-                                    <label>Sinopsis</label>
-                                    <textarea name="sinopsis" rows="5"  placeholder="Sinopsis de la publicación" class="form-control tinymce" id="input-sinopsis" data-height="300"></textarea>
-                                </div>
+    <!-- Campos Opcionales (1 al 7) en Acordeón -->
+    <flux:accordion>
+        <flux:accordion.item heading="Campos Adicionales Opcionales (1 al 7)">
+            <div class="space-y-4 pt-3">
+                @for($i = 1; $i <= 7; $i++)
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 shadow-sm space-y-3">
+                        <flux:input
+                            wire:model="campo_opcional_{{ $i }}_titulo"
+                            label="Título Campo {{ $i }}"
+                            placeholder="Ej: Fotografías, Traducción, ISBN..."
+                        />
+                        <flux:textarea
+                            wire:model="campo_opcional_{{ $i }}"
+                            label="Contenido Campo {{ $i }}"
+                            placeholder="Descripción o contenido del campo opcional {{ $i }}"
+                            rows="2"
+                        />
+                    </div>
+                @endfor
+            </div>
+        </flux:accordion.item>
+    </flux:accordion>
 
-                                
-                                <div class="form-group">
-                                    <label>Fecha Publicación </label>
-                                    <div>
-                                        <input type="text" name="fecha_publicacion" placeholder="Fecha" class="form-control">
-                                    </div>
-                                </div>
+    <!-- Sinopsis -->
+    <flux:editor label="Sinopsis" wire:model.blur="synopsis"
+        placeholder="Sinopsis de la publicación" />
 
-                                <div class="form-group">
-                                    <input type="text" name="campo_opcional_3_titulo" placeholder="Campo Opcional 3 Título" class="form-control">
-                                    <textarea name="campo_opcional_3" rows="3"  placeholder="Campo Opcional 3" class="form-control"></textarea>
-                                </div>
+    <flux:editor label="Contenido Adicional" wire:model.blur="additional_content"
+        placeholder="Contenido adicional de la publicación"
+        toolbar="heading | bold italic underline | bullet ordered" />
+</div>
 
-                                <div class="form-group">
-                                    <input type="text" name="campo_opcional_4_titulo" placeholder="Campo Opcional 4 Título" class="form-control">
-                                    <textarea name="campo_opcional_4" rows="3"  placeholder="Campo Opcional 4" class="form-control"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-md-6">                        
 
-                                <div class="form-group">
-                                    <label>Título (EN)</label>
-                                    <input type="text" name="titulo_en" placeholder="Título de la publicación (EN)" class="form-control tinymce" id="input-titulo-en" required>
-                                </div>
+                               <div class="space-y-6">
+    <!-- Title (EN) -->
+    <div>
+        <flux:label>Title (EN)</flux:label>
+        <flux:editor toolbar="italic bold" wire:model.blur="title_en"
+            placeholder="Publication title (EN)" class="h-28" />
+    </div>
 
-                                <div class="form-group">
-                                    <input type="text" name="campo_opcional_1_en_titulo" placeholder="Campo Opcional 1 Título (EN)" class="form-control">
-                                    <textarea name="campo_opcional_1_en" rows="3"  placeholder="Campo Opcional 1 (EN)" class="form-control"></textarea>
-                                </div>
+    <!-- Date (EN) -->
+    <div>
+        <flux:label>Publication Date (EN)</flux:label>
+        <flux:date-picker wire:model="publication_date_en" placeholder="Select a date" />
+    </div>
 
-                                <div class="form-group">
-                                    <input type="text" name="campo_opcional_5_en_titulo" placeholder="Campo Opcional 5 Título (EN)" class="form-control">
-                                    <textarea name="campo_opcional_5_en" rows="3"  placeholder="Campo Opcional 5 (EN)" class="form-control"></textarea>
-                                </div>
+    <!-- Credits & Fixed Details (EN) -->
+    <div class="p-5 bg-gray-50 border border-gray-200 rounded-xl space-y-4">
+        <flux:subheading size="sm" class="!font-semibold !text-forest-700">
+            Credits & Details (EN)
+        </flux:subheading>
 
-                                <div class="form-group">
-                                    <label>Coordinación Editorial (EN)</label>
-                                    <textarea name="coordinacion_editorial_en" rows="3"  placeholder="Coordinación Editorial (EN)" class="form-control"></textarea>
-                                </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <flux:input label="Design (EN)" wire:model="diseno_en" placeholder="Designer name..." />
+            <flux:input label="Texts (EN)" wire:model="textos_en" placeholder="Text authors..." />
+        </div>
 
-                                <div class="form-group">
-                                    <label>Diseño (EN)</label>
-                                    <input type="text" name="diseno_en" placeholder="Diseño (EN)" class="form-control">
-                                </div>
+        <div>
+            <flux:textarea label="Editorial Coordination (EN)" wire:model="editorial_coordination_en"
+                placeholder="Editorial Coordination (EN)" rows="3" />
+        </div>
+    </div>
 
-                                <div class="form-group">
-                                    <label>Textos (EN)</label>
-                                    <input type="text" name="textos_en" placeholder="Textos (EN)" class="form-control">
-                                </div>
+    <!-- Optional Fields (1-7 EN) in Accordion -->
+    <flux:accordion>
+        <flux:accordion.item heading="Optional Additional Fields (1 to 7)">
+            <div class="space-y-4 pt-3">
+                @for($i = 1; $i <= 7; $i++)
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 shadow-sm space-y-3">
+                        <flux:input
+                            wire:model="campo_opcional_{{ $i }}_en_titulo"
+                            label="Field {{ $i }} Title (EN)"
+                            placeholder="E.g.: Photography, Translation, ISBN..."
+                        />
+                        <flux:textarea
+                            wire:model="campo_opcional_{{ $i }}_en"
+                            label="Field {{ $i }} Content (EN)"
+                            placeholder="Description or content for optional field {{ $i }}"
+                            rows="2"
+                        />
+                    </div>
+                @endfor
+            </div>
+        </flux:accordion.item>
+    </flux:accordion>
 
-                                <div class="form-group">
-                                    <input type="text" name="campo_opcional_2_en_titulo" placeholder="Campo Opcional 2 Título (EN)" class="form-control">
-                                    <textarea name="campo_opcional_2_en" rows="3"  placeholder="Campo Opcional 2 (EN)" class="form-control"></textarea>
-                                </div>
+    <!-- Synopsis (EN) -->
+    <div>
+        <flux:label>Synopsis (EN)</flux:label>
+        <flux:editor wire:model.blur="synopsis_en" placeholder="Publication synopsis (EN)" />
+    </div>
 
-                                <div class="form-group">
-                                    <input type="text" name="campo_opcional_6_en_titulo" placeholder="Campo Opcional 6 Título (EN)" class="form-control">
-                                    <textarea name="campo_opcional_6_en" rows="3"  placeholder="Campo Opcional 6 (EN)" class="form-control"></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <input type="text" name="campo_opcional_7_en_titulo" placeholder="Campo Opcional 7 Título (EN)" class="form-control">
-                                    <textarea name="campo_opcional_7_en" rows="3"  placeholder="Campo Opcional 7 (EN)" class="form-control"></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Sinopsis (EN)</label>
-                                    <textarea name="sinopsis_en" rows="5"  placeholder="Sinopsis de la publicación (EN)" class="form-control tinymce" id="input-sinopsis-en" data-height="300"></textarea>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label>Fecha Publicación (EN)</label>
-                                    <div>
-                                        <input type="text" name="fecha_publicacion_en" placeholder="Fecha (EN)" class="form-control">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <input type="text" name="campo_opcional_3_en_titulo" placeholder="Campo Opcional 3 Título (EN)" class="form-control">
-                                    <textarea name="campo_opcional_3_en" rows="3"  placeholder="Campo Opcional 3 (EN)" class="form-control"></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <input type="text" name="campo_opcional_4_en_titulo" placeholder="Campo Opcional 4 Título (EN)" class="form-control">
-                                    <textarea name="campo_opcional_4_en" rows="3"  placeholder="Campo Opcional 4 (EN)" class="form-control"></textarea>
-                                </div>
-                            </div>
+    <div>
+        <flux:label>Additional Content (EN)</flux:label>
+        <flux:editor wire:model.blur="additional_content_en"
+            placeholder="Additional publication content (EN)"
+            toolbar="heading | bold italic underline | bullet ordered" />
+    </div>
+</div>
                         </div>
-                        
+
                         <div class="form-group float-right">
                             <button type="submit" class="btn btn-primary">Crear Publicación</button>
                         </div>

@@ -12,18 +12,18 @@
                 <div class="flex items-center gap-3">
                     @if ($publicationId)
                         <flux:button type="button" variant="ghost" x-on:click="window.Swal.fire({
-                                                                                                title: '¿Estás seguro?',
-                                                                                                text: '¿Deseas eliminar esta publicación? Esta acción no se puede deshacer.',
-                                                                                                icon: 'warning',
-                                                                                                showCancelButton: true,
-                                                                                                confirmButtonText: 'Si, eliminar',
-                                                                                                cancelButtonText: 'Cancelar',
-                                                                                                confirmButtonColor: '#d33',
-                                                                                            }).then((result) => {
-                                                                                                if (result.isConfirmed) {
-                                                                                                    $wire.deletePublication()
-                                                                                                }
-                                                                                            })"
+                                title: '¿Estás seguro?',
+                                text: '¿Deseas eliminar esta publicación? Esta acción no se puede deshacer.',
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonText: 'Si, eliminar',
+                                cancelButtonText: 'Cancelar',
+                                confirmButtonColor: '#d33',
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    $wire.deletePublication()
+                                }
+                            })"
                             class="px-4 !text-red-500 hover:!text-red-600">
                             Eliminar Publicación
                         </flux:button>
@@ -159,18 +159,18 @@
                                                     class="text-sm text-gray-600">{{ $currentMultimedia->filename }}</span>
                                             </div>
                                             <button type="button" x-on:click="window.Swal.fire({
-                                                                                                                    title: '¿Estás seguro?',
-                                                                                                                    text: '¿Deseas eliminar este archivo?',
-                                                                                                                    icon: 'warning',
-                                                                                                                    showCancelButton: true,
-                                                                                                                    confirmButtonText: 'Si, eliminar',
-                                                                                                                    cancelButtonText: 'Cancelar',
-                                                                                                                    confirmButtonColor: '#d33',
-                                                                                                                }).then((result) => {
-                                                                                                                    if (result.isConfirmed) {
-                                                                                                                        $wire.removeMultimedia()
-                                                                                                                    }
-                                                                                                                })"
+                                                    title: '¿Estás seguro?',
+                                                    text: '¿Deseas eliminar este archivo?',
+                                                    icon: 'warning',
+                                                    showCancelButton: true,
+                                                    confirmButtonText: 'Si, eliminar',
+                                                    cancelButtonText: 'Cancelar',
+                                                    confirmButtonColor: '#d33',
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                        $wire.removeMultimedia()
+                                                    }
+                                                })"
                                                 class="absolute -top-2 -right-2 bg-red-500 hover:bg-red-600 text-white rounded-full p-1 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
                                                 <flux:icon name="x-mark" class="w-3 h-3" />
                                             </button>
@@ -190,18 +190,18 @@
                                             <img src="/storage/{{ $currentThumbnail->filename }}"
                                                 class="w-32 h-32 object-cover rounded-lg border border-gray-200 shadow-sm" />
                                             <button type="button" x-on:click="window.Swal.fire({
-                                                                                                                    title: '¿Estás seguro?',
-                                                                                                                    text: '¿Deseas eliminar este thumbnail?',
-                                                                                                                    icon: 'warning',
-                                                                                                                    showCancelButton: true,
-                                                                                                                    confirmButtonText: 'Si, eliminar',
-                                                                                                                    cancelButtonText: 'Cancelar',
-                                                                                                                    confirmButtonColor: '#d33',
-                                                                                                                }).then((result) => {
-                                                                                                                    if (result.isConfirmed) {
-                                                                                                                        $wire.removeThumbnail()
-                                                                                                                    }
-                                                                                                                })"
+                                                    title: '¿Estás seguro?',
+                                                    text: '¿Deseas eliminar este thumbnail?',
+                                                    icon: 'warning',
+                                                    showCancelButton: true,
+                                                    confirmButtonText: 'Si, eliminar',
+                                                    cancelButtonText: 'Cancelar',
+                                                    confirmButtonColor: '#d33',
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                        $wire.removeThumbnail()
+                                                    }
+                                                })"
                                                 class="absolute -top-2 -right-2 bg-red-500 hover:bg-red-600 text-white rounded-full p-1 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
                                                 <flux:icon name="x-mark" class="w-3 h-3" />
                                             </button>
@@ -232,156 +232,190 @@
                     </div>
 
                     <div class="space-y-6">
+                        <!-- Título -->
                         <flux:editor toolbar="italic bold" label="Título" wire:model.blur="title"
-                            placeholder="Título de la publicación" class="h-32" />
+                            placeholder="Título de la publicación" class="h-28" />
 
+                        <!-- Fecha -->
                         <flux:date-picker label="Fecha Publicación" wire:model="publication_date"
                             placeholder="Selecciona una fecha" />
 
-                        <flux:textarea label="Detalles de la Publicación" wire:model="editorial_coordination"
-                            placeholder="Coordinación Editorial" rows="4" />
+                      <!-- Créditos Fijos -->
+<div class="p-5 bg-gray-50 border border-gray-200 rounded-xl space-y-4">
+    <flux:subheading size="sm" class="!font-semibold !text-forest-700">
+        Créditos y Detalles
+    </flux:subheading>
 
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <flux:input label="Diseño" wire:model="design" placeholder="Nombre del diseñador..." />
+        <flux:input label="Textos" wire:model="texts" placeholder="Autores de textos..." />
+    </div>
 
+    <div>
+        <flux:textarea label="Coordinación Editorial" wire:model="editorial_coordination"
+            placeholder="Coordinación Editorial" rows="3" />
+    </div>
+</div>
 
+<!-- Campos Opcionales (1 al 7) -->
+<flux:accordion>
+    <flux:accordion.item heading="Campos Adicionales Opcionales (1 al 7)">
+        <div class="space-y-4 pt-3">
+            @for($i = 1; $i <= 7; $i++)
+                <div class="p-4 bg-white rounded-lg border border-gray-200 shadow-sm space-y-3">
+                    <flux:input
+                        wire:model="optional_field_{{ $i }}_title"
+                        label="Título Campo {{ $i }}"
+                        placeholder="Ej: Fotografías, Traducción, ISBN..."
+                    />
+                    <flux:textarea
+                        wire:model="optional_field_{{ $i }}"
+                        label="Contenido Campo {{ $i }}"
+                        placeholder="Descripción o contenido del campo opcional {{ $i }}"
+                        rows="2"
+                    />
+                </div>
+            @endfor
+        </div>
+    </flux:accordion.item>
+</flux:accordion>
+
+                        <!-- Sinopsis -->
                         <flux:editor label="Sinopsis" wire:model.blur="synopsis"
                             placeholder="Sinopsis de la publicación" />
 
+                        <!-- Contenido Adicional -->
                         <flux:editor label="Contenido Adicional" wire:model.blur="additional_content"
                             placeholder="Contenido adicional de la publicación"
                             toolbar="heading | bold italic underline | bullet ordered" />
                     </div>
+                </flux:card>
 
-                    {{-- Optional Fields Accordion for Spanish - Hidden after migration --}}
-                    {{--
-                    <flux:accordion class="mt-8">
-                        <flux:accordion.item heading="Campos Opcionales (1-7)">
-                            <div class="space-y-6 pt-4">
-                                @for($i = 1; $i <= 7; $i++) <div
-                                    class="p-5 bg-white/80 rounded-lg border border-blue-200/60">
-                                    <div class="space-y-4">
-                                        <flux:input wire:model="campo_opcional_{{ $i }}_titulo"
-                                            placeholder="Campo Opcional {{ $i }} - Título" />
-                                        <flux:textarea wire:model="campo_opcional_{{ $i }}"
-                                            placeholder="Campo Opcional {{ $i }} - Contenido" rows="3" />
-                                    </div>
+                <!-- English Column -->
+                <flux:card class="!p-8 !bg-white border border-gray-200">
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <flux:heading size="lg" class="!text-forest-700 flex items-center gap-3 mb-2">
+                                    English Content
+                                </flux:heading>
+                                <flux:subheading class="!text-gray-700 mt-2">
+                                    Publication information in English
+                                </flux:subheading>
                             </div>
-                            @endfor
-            </div>
-            </flux:accordion.item>
-            </flux:accordion>
-            --}}
-            </flux:card>
+                            <flux:button type="button" wire:click="translateAllFields" wire:target="translateAllFields"
+                                wire:loading.attr="disabled" size="sm" variant="ghost" icon="language"
+                                class="!text-purple-600 hover:!text-purple-700">
+                                <span wire:loading.remove wire:target="translateAllFields">Traducir Todo</span>
+                                <span wire:loading wire:target="translateAllFields" class="flex items-center gap-2">
+                                    <svg class="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                                            stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor"
+                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                        </path>
+                                    </svg>
+                                    Traduciendo...
+                                </span>
+                            </flux:button>
+                        </div>
 
-            <!-- English Column -->
-            <flux:card class="!p-8 !bg-white border border-gray-200">
-                <div class="mb-8">
-                    <div class="flex items-center justify-between">
+                        @if($translationError)
+                            <div class="mb-6 bg-red-50 border-l-4 border-red-400 p-4 rounded shadow-sm">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0">
+                                        <flux:icon.exclamation-circle class="h-5 w-5 text-red-400" />
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-sm text-red-700">
+                                            {{ $translationError }}
+                                        </p>
+                                    </div>
+                                    <div class="ml-auto pl-3">
+                                        <div class="-mx-1.5 -my-1.5">
+                                            <button type="button" wire:click="$set('translationError', null)"
+                                                class="inline-flex bg-red-50 rounded-md p-1.5 text-red-500 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-50 focus:ring-red-600">
+                                                <span class="sr-only">Close</span>
+                                                <flux:icon.x-mark class="h-4 w-4" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Title (EN) -->
                         <div>
-                            <flux:heading size="lg" class="!text-forest-700 flex items-center gap-3 mb-2">
-                                English Content
-                            </flux:heading>
-                            <flux:subheading class="!text-gray-700 mt-2">
-                                Publication information in English
-                            </flux:subheading>
+                            <flux:label>Title (EN)</flux:label>
+                            <flux:editor toolbar="italic bold" wire:model.blur="title_en"
+                                placeholder="Publication title (EN)" class="h-28" />
                         </div>
-                        <flux:button type="button" wire:click="translateAllFields" wire:target="translateAllFields"
-                            wire:loading.attr="disabled" size="sm" variant="ghost" icon="language"
-                            class="!text-purple-600 hover:!text-purple-700">
-                            <span wire:loading.remove wire:target="translateAllFields">Traducir Todo</span>
-                            <span wire:loading wire:target="translateAllFields" class="flex items-center gap-2">
-                                <svg class="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 24 24">
-                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
-                                        stroke-width="4"></circle>
-                                    <path class="opacity-75" fill="currentColor"
-                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                    </path>
-                                </svg>
-                                Traduciendo...
-                            </span>
-                        </flux:button>
-                    </div>
 
-                    @if($translationError)
-                        <div class="mb-6 bg-red-50 border-l-4 border-red-400 p-4 rounded shadow-sm">
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0">
-                                    <flux:icon.exclamation-circle class="h-5 w-5 text-red-400" />
-                                </div>
-                                <div class="ml-3">
-                                    <p class="text-sm text-red-700">
-                                        {{ $translationError }}
-                                    </p>
-                                </div>
-                                <div class="ml-auto pl-3">
-                                    <div class="-mx-1.5 -my-1.5">
-                                        <button type="button" wire:click="$set('translationError', null)"
-                                            class="inline-flex bg-red-50 rounded-md p-1.5 text-red-500 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-50 focus:ring-red-600">
-                                            <span class="sr-only">Close</span>
-                                            <flux:icon.x-mark class="h-4 w-4" />
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                        <!-- Date (EN) -->
+                        <div>
+                            <flux:label>Publication Date (EN)</flux:label>
+                            <flux:date-picker wire:model="publication_date_en" placeholder="Select a date" />
                         </div>
-                    @endif
-                </div>
 
+                       <!-- Credits Fijos (EN) -->
+<div class="p-5 bg-gray-50 border border-gray-200 rounded-xl space-y-4">
+    <flux:subheading size="sm" class="!font-semibold !text-forest-700">
+        Credits & Details (EN)
+    </flux:subheading>
 
-                <div class="space-y-6">
-                    <div>
-                        <flux:label>Title (EN)</flux:label>
-                        <flux:editor toolbar="italic bold" wire:model.blur="title_en"
-                            placeholder="Publication title (EN)" class="h-32" />
-                    </div>
-
-                    <div>
-                        <flux:label>Publication Date (EN)</flux:label>
-                        <flux:date-picker wire:model="publication_date_en" placeholder="Select a date" />
-                    </div>
-
-                    <div>
-                        <flux:label>Publication Details (EN)</flux:label>
-                        <flux:textarea wire:model="editorial_coordination_en" placeholder="Editorial Coordination (EN)"
-                            rows="4" />
-                    </div>
-
-
-
-                    <div>
-                        <flux:label>Synopsis (EN)</flux:label>
-                        <flux:editor wire:model.blur="synopsis_en" placeholder="Publication synopsis (EN)" />
-                    </div>
-                </div>
-
-                <div>
-                    <flux:label>Additional Content</flux:label>
-                    <flux:editor wire:model.blur="additional_content_en"
-                        placeholder="Additional publication content (EN)"
-                        toolbar="heading | bold italic underline | bullet ordered" />
-                </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <flux:input label="Design (EN)" wire:model="design_en" placeholder="Designer name..." />
+        <flux:input label="Texts (EN)" wire:model="texts_en" placeholder="Text authors..." />
     </div>
 
-    {{-- Optional Fields Accordion for English - Hidden after migration --}}
-    {{--
-    <flux:accordion class="mt-8">
-        <flux:accordion.item heading="Optional Fields (1-7)">
-            <div class="space-y-6 pt-4">
-                @for($i = 1; $i <= 7; $i++) <div class="p-5 bg-white/80 rounded-lg border border-green-200/60">
-                    <div class="space-y-4">
-                        <flux:input wire:model="campo_opcional_{{ $i }}_en_titulo"
-                            placeholder="Optional Field {{ $i }} - Title (EN)" />
-                        <flux:textarea wire:model="campo_opcional_{{ $i }}_en"
-                            placeholder="Optional Field {{ $i }} - Content (EN)" rows="3" />
-                    </div>
-            </div>
+    <div>
+        <flux:textarea label="Editorial Coordination (EN)" wire:model="editorial_coordination_en"
+            placeholder="Editorial Coordination (EN)" rows="3" />
+    </div>
+</div>
+
+<!-- Optional Fields (1-7 EN) -->
+<flux:accordion>
+    <flux:accordion.item heading="Optional Additional Fields (1 to 7)">
+        <div class="space-y-4 pt-3">
+            @for($i = 1; $i <= 7; $i++)
+                <div class="p-4 bg-white rounded-lg border border-gray-200 shadow-sm space-y-3">
+                    <flux:input
+                        wire:model="optional_field_{{ $i }}_en_title"
+                        label="Field {{ $i }} Title (EN)"
+                        placeholder="E.g.: Photography, Translation, ISBN..."
+                    />
+                    <flux:textarea
+                        wire:model="optional_field_{{ $i }}_en"
+                        label="Field {{ $i }} Content (EN)"
+                        placeholder="Description or content for optional field {{ $i }}"
+                        rows="2"
+                    />
+                </div>
             @endfor
-</div>
-</flux:accordion.item>
+        </div>
+    </flux:accordion.item>
 </flux:accordion>
---}}
-</flux:card>
-</div>
-</form>
-</div>
+
+                        <!-- Synopsis (EN) -->
+                        <div>
+                            <flux:label>Synopsis (EN)</flux:label>
+                            <flux:editor wire:model.blur="synopsis_en" placeholder="Publication synopsis (EN)" />
+                        </div>
+
+                        <!-- Additional Content (EN) -->
+                        <div>
+                            <flux:label>Additional Content (EN)</flux:label>
+                            <flux:editor wire:model.blur="additional_content_en"
+                                placeholder="Additional publication content (EN)"
+                                toolbar="heading | bold italic underline | bullet ordered" />
+                        </div>
+                    </div>
+                </flux:card>
+            </div>
+        </form>
+    </div>
 </div>
