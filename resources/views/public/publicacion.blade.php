@@ -31,13 +31,7 @@
 
                         <!-- FICHA TÉCNICA (Todos los campos juntos en líneas individuales) -->
                         <div class="publicacion-ficha">
-                            @if ($publicacion->campo_opcional_1_titulo && $publicacion->campo_opcional_1)
-                                <p><b>{{ rtrim(trim($publicacion->campo_opcional_1_titulo), ':') }}:</b> {{ trim($publicacion->campo_opcional_1) }}</p>
-                            @endif
 
-                            @if ($publicacion->campo_opcional_5_titulo && $publicacion->campo_opcional_5)
-                                <p><b>{{ rtrim(trim($publicacion->campo_opcional_5_titulo), ':') }}:</b> {{ trim($publicacion->campo_opcional_5) }}</p>
-                            @endif
 
                             @if ($publicacion->coordinacion_editorial)
                                 <p><b>Coordinación editorial:</b> {{ trim($publicacion->coordinacion_editorial) }}</p>
@@ -49,6 +43,14 @@
 
                             @if ($publicacion->textos)
                                 <p><b>Textos:</b> {{ trim($publicacion->textos) }}</p>
+                            @endif
+
+                                @if ($publicacion->campo_opcional_1_titulo && $publicacion->campo_opcional_1)
+                                <p><b>{{ rtrim(trim($publicacion->campo_opcional_1_titulo), ':') }}:</b> {{ trim($publicacion->campo_opcional_1) }}</p>
+                            @endif
+
+                            @if ($publicacion->campo_opcional_5_titulo && $publicacion->campo_opcional_5)
+                                <p><b>{{ rtrim(trim($publicacion->campo_opcional_5_titulo), ':') }}:</b> {{ trim($publicacion->campo_opcional_5) }}</p>
                             @endif
 
                             @if ($publicacion->campo_opcional_2_titulo && $publicacion->campo_opcional_2)
