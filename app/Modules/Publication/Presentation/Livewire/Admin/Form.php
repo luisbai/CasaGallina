@@ -330,7 +330,12 @@ class Form extends Component
             // New publication
             $data['publicacion_multimedia_id'] = $this->publicationService->processFile($this->publication_multimedia, $this->title);
             $data['publicacion_thumbnail_id'] = $this->publicationService->processFile($this->publication_thumbnail, $this->title, true);
-            $data['orden'] = Publication::count() + 1;
+
+            // 1. Recorremos todas las publicaciones existentes un lugar hacia adelante (+1)
+            Publication::query()->increment('orden');
+
+            // 2. La nueva publicación se asigna en el primer lugar
+            $data['orden'] = 1;
 
             try {
                 $this->publicationService->create($data);
