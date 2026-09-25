@@ -335,7 +335,7 @@
                                     <p class="card-text">Para el desarrollo de los programas de 2023 se agradece el apoyo directo de:</p>
                                     <ul class="list-unstyled">
                                         <li>XTRA Congelados Naturales SA de CV a través del EFIARTES (Estímulo fiscal del artículo 190 de la LISR)</li>
-                                         
+
                                     </ul>
                                 </div>
                             </div>
@@ -349,7 +349,7 @@
                                     <p class="card-text">Para el desarrollo de los programas de 2024 se agradece el apoyo directo de:</p>
                                     <ul class="list-unstyled">
                                         <li>Fundación Coppel a través de su programa Caleidoscopio</li>
-                                        
+
                                         <li class="mt-2">
                                             <a href="https://casagallina.org.mx/estrategia/campana-de-fondeo-colectivo-recrea/26" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Campaña de fondeo colectivo: Recrea</a>
                                         </li>
@@ -366,8 +366,8 @@
                                     <p class="card-text">Para el desarrollo de los programas de 2025 se agradece el apoyo directo de:</p>
                                     <ul class="list-unstyled">
                                         <li>Programa de Desarrollo de Arte y Cultura Citibanamex (DAC)</li>
-                                        <li class="mt-2">
-                                            <a href="https://casagallina.org.mx/aqui-es-una-casa" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Campaña de fondeo colectivo: 10 años de trabajo comunitario</a>
+                                         <li class="mt-2">
+                                            <a href="https://casagallina.org.mx/donaciones/campaign" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Campaña de fondeo colectivo: 10 años de trabajo comunitario</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -382,8 +382,14 @@
                                     <ul class="list-unstyled">
                                         <li>Programa de Desarrollo de Arte y Cultura Citibanamex (DAC)</li>
                                         <li class="mt-2">
-                                            <a href="https://casagallina.org.mx/donaciones/campaign" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Campaña de fondeo colectivo: Aquí es una casa</a>
-                                        </li>
+    <a href="{{ url('/donaciones/aqui-es-una-casa') }}" target="_blank"
+       style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;"
+       onmouseover="this.style.textDecoration='underline'"
+       onmouseout="this.style.textDecoration='none'">
+        Campaña de fondeo colectivo: Aquí es una casa
+    </a>
+</li>
+
                                     </ul>
                                 </div>
                             </div>
