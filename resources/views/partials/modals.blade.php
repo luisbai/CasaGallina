@@ -23,6 +23,7 @@
                                 <a href="{{ route('donaciones') }}"
                                     class="px-4 py-2 rounded-xl bg-forest text-white mt-4 hover:no-underline hover:bg-green-800/90 transition">
                                     Más información
+                                     <!-- Va el link con la campaña de fondeo oficios -->
                                 </a>
                             </div>
                         </div>
