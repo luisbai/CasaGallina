@@ -80,6 +80,18 @@
                             @if ($publicacion->campo_opcional_4_titulo && $publicacion->campo_opcional_4)
                                 <p><b>{{ rtrim(trim($publicacion->campo_opcional_4_titulo), ':') }}:</b> {{ trim($publicacion->campo_opcional_4) }}</p>
                             @endif
+
+                            @if ($publicacion->campo_opcional_8_titulo && $publicacion->campo_opcional_8)
+                                <p><b>{{ rtrim(trim($publicacion->campo_opcional_8_titulo), ':') }}:</b> {{ trim($publicacion->campo_opcional_8) }}</p>
+                            @endif
+
+                            @if ($publicacion->campo_opcional_9_titulo && $publicacion->campo_opcional_9)
+                                <p><b>{{ rtrim(trim($publicacion->campo_opcional_9_titulo), ':') }}:</b> {{ trim($publicacion->campo_opcional_9) }}</p>
+                            @endif
+
+                            @if ($publicacion->campo_opcional_10_titulo && $publicacion->campo_opcional_10)
+                                <p><b>{{ rtrim(trim($publicacion->campo_opcional_10_titulo), ':') }}:</b> {{ trim($publicacion->campo_opcional_10) }}</p>
+                            @endif
                         </div>
 
                         <div class="publicacion-divider"></div>

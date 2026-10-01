@@ -44,6 +44,12 @@ class Publication extends Model
         'campo_opcional_6',
         'campo_opcional_7_titulo',
         'campo_opcional_7',
+        'campo_opcional_8_titulo',
+        'campo_opcional_8',
+        'campo_opcional_9_titulo',
+        'campo_opcional_9',
+        'campo_opcional_10_titulo',
+        'campo_opcional_10',
 
         'downloads',
         'views',
@@ -71,6 +77,12 @@ class Publication extends Model
         'campo_opcional_6_en',
         'campo_opcional_7_en_titulo',
         'campo_opcional_7_en',
+        'campo_opcional_8_en_titulo',
+        'campo_opcional_8_en',
+        'campo_opcional_9_en_titulo',
+        'campo_opcional_9_en',
+        'campo_opcional_10_en_titulo',
+        'campo_opcional_10_en',
 
         'orden',
 

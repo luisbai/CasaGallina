@@ -63,6 +63,19 @@
                                 <p><b>{{ rtrim(trim($publicacion->campo_opcional_7_en_titulo), ':') }}:</b> {{ trim($publicacion->campo_opcional_7_en) }}</p>
                             @endif
 
+
+                            @if ($publicacion->campo_opcional_8_en_titulo && $publicacion->campo_opcional_8_en)
+                                <p><b>{{ rtrim(trim($publicacion->campo_opcional_8_en_titulo), ':') }}:</b> {{ trim($publicacion->campo_opcional_8_en) }}</p>
+                            @endif
+
+                            @if ($publicacion->campo_opcional_9_en_titulo && $publicacion->campo_opcional_9_en)
+                                <p><b>{{ rtrim(trim($publicacion->campo_opcional_9_en_titulo), ':') }}:</b> {{ trim($publicacion->campo_opcional_9_en) }}</p>
+                            @endif
+
+                            @if ($publicacion->campo_opcional_10_en_titulo && $publicacion->campo_opcional_10_en)
+                                <p><b>{{ rtrim(trim($publicacion->campo_opcional_10_en_titulo), ':') }}:</b> {{ trim($publicacion->campo_opcional_10_en) }}</p>
+                            @endif
+
                             @if ($publicacion->campo_opcional_3_en_titulo && $publicacion->campo_opcional_3_en)
                                 <p><b>{{ rtrim(trim($publicacion->campo_opcional_3_en_titulo), ':') }}:</b> {{ trim($publicacion->campo_opcional_3_en) }}</p>
                             @endif

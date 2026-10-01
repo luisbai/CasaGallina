@@ -259,9 +259,9 @@
 
 <!-- Campos Opcionales (1 al 7) -->
 <flux:accordion>
-    <flux:accordion.item heading="Campos Adicionales Opcionales (1 al 7)">
+    <flux:accordion.item heading="Campos Adicionales Opcionales (1 al 10)">
         <div class="space-y-4 pt-3">
-            @for($i = 1; $i <= 7; $i++)
+            @for($i = 1; $i <= 10; $i++)
                 <div class="p-4 bg-white rounded-lg border border-gray-200 shadow-sm space-y-3">
                     <flux:input
                         wire:model="optional_field_{{ $i }}_title"
@@ -379,9 +379,9 @@
 
 <!-- Optional Fields (1-7 EN) -->
 <flux:accordion>
-    <flux:accordion.item heading="Optional Additional Fields (1 to 7)">
+    <flux:accordion.item heading="Optional Additional Fields (1 to 10)">
         <div class="space-y-4 pt-3">
-            @for($i = 1; $i <= 7; $i++)
+            @for($i = 1; $i <= 10; $i++)
                 <div class="p-4 bg-white rounded-lg border border-gray-200 shadow-sm space-y-3">
                     <flux:input
                         wire:model="optional_field_{{ $i }}_en_title"

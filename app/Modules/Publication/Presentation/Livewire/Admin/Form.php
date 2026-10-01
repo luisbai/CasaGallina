@@ -71,6 +71,21 @@ class Form extends Component
     public string $optional_field_7_en_title = '';
     public string $optional_field_7_en = '';
 
+    public string $optional_field_8_title = '';
+    public string $optional_field_8 = '';
+    public string $optional_field_8_en_title = '';
+    public string $optional_field_8_en = '';
+
+    public string $optional_field_9_title = '';
+    public string $optional_field_9 = '';
+    public string $optional_field_9_en_title = '';
+    public string $optional_field_9_en = '';
+
+    public string $optional_field_10_title = '';
+    public string $optional_field_10 = '';
+    public string $optional_field_10_en_title = '';
+    public string $optional_field_10_en = '';
+
     public ?int $exhibition_id = null;
     public string $exhibitionSearch = '';
     public array $exhibitionSearchResults = [];
@@ -179,6 +194,22 @@ class Form extends Component
         $this->optional_field_7 = $publication->campo_opcional_7 ?? '';
         $this->optional_field_7_en_title = $publication->campo_opcional_7_en_titulo ?? '';
         $this->optional_field_7_en = $publication->campo_opcional_7_en ?? '';
+
+        // Campos 8, 9 y 10
+        $this->optional_field_8_title = $publication->campo_opcional_8_titulo ?? '';
+        $this->optional_field_8 = $publication->campo_opcional_8 ?? '';
+        $this->optional_field_8_en_title = $publication->campo_opcional_8_en_titulo ?? '';
+        $this->optional_field_8_en = $publication->campo_opcional_8_en ?? '';
+
+        $this->optional_field_9_title = $publication->campo_opcional_9_titulo ?? '';
+        $this->optional_field_9 = $publication->campo_opcional_9 ?? '';
+        $this->optional_field_9_en_title = $publication->campo_opcional_9_en_titulo ?? '';
+        $this->optional_field_9_en = $publication->campo_opcional_9_en ?? '';
+
+        $this->optional_field_10_title = $publication->campo_opcional_10_titulo ?? '';
+        $this->optional_field_10 = $publication->campo_opcional_10 ?? '';
+        $this->optional_field_10_en_title = $publication->campo_opcional_10_en_titulo ?? '';
+        $this->optional_field_10_en = $publication->campo_opcional_10_en ?? '';
 
         $this->exhibition_id = $publication->exposicion_id;
         if ($publication->exhibition) {
@@ -298,6 +329,22 @@ class Form extends Component
             'campo_opcional_7' => $this->optional_field_7,
             'campo_opcional_7_en_titulo' => $this->optional_field_7_en_title,
             'campo_opcional_7_en' => $this->optional_field_7_en,
+
+            // Campos 8, 9 y 10
+            'campo_opcional_8_titulo' => $this->optional_field_8_title,
+            'campo_opcional_8' => $this->optional_field_8,
+            'campo_opcional_8_en_titulo' => $this->optional_field_8_en_title,
+            'campo_opcional_8_en' => $this->optional_field_8_en,
+
+            'campo_opcional_9_titulo' => $this->optional_field_9_title,
+            'campo_opcional_9' => $this->optional_field_9,
+            'campo_opcional_9_en_titulo' => $this->optional_field_9_en_title,
+            'campo_opcional_9_en' => $this->optional_field_9_en,
+
+            'campo_opcional_10_titulo' => $this->optional_field_10_title,
+            'campo_opcional_10' => $this->optional_field_10,
+            'campo_opcional_10_en_titulo' => $this->optional_field_10_en_title,
+            'campo_opcional_10_en' => $this->optional_field_10_en,
 
             'exposicion_id' => $this->exhibition_id,
         ];
@@ -428,7 +475,7 @@ class Form extends Component
         ];
 
         // Incluir opcionales 1 al 7
-        for ($i = 1; $i <= 7; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
             $tVal = trim($this->{"optional_field_{$i}_title"} ?? '');
             $cVal = trim($this->{"optional_field_{$i}"} ?? '');
 
@@ -472,7 +519,7 @@ class Form extends Component
             }
 
             // 2. Asignación directa y exacta de opcionales 1 al 7
-            for ($i = 1; $i <= 7; $i++) {
+            for ($i = 1; $i <= 10; $i++) {
                 if (isset($translatedFields["optional_field_{$i}_title"])) {
                     $this->{"optional_field_{$i}_en_title"} = $translatedFields["optional_field_{$i}_title"];
                 }
