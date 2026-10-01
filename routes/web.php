@@ -45,6 +45,7 @@ Route::post('/donaciones/contacto', [PublicController::class, 'donacionesContact
 Route::post('/donaciones/checkout', [\App\Modules\Donation\Presentation\Http\Controllers\DonationController::class, 'checkout'])->name('donaciones.checkout');
 Route::get('/donaciones/campaign', [PublicController::class, 'donacionesCampaign'])->name('donaciones.campaign');
 Route::view('/donaciones/aqui-es-una-casa', 'public.aqui-es-una-casa-campaign')->name('donaciones.aqui-es-una-casa');
+Route::view('/donaciones/donacion-campaign-oficios', 'public.donacion-campaign-oficios')->name('donacion-campaign-oficios');
 
 // Donation type specific pages
 Route::get('/donaciones/unica', [PublicController::class, 'donacionUnica'])->name('donaciones.unica');
