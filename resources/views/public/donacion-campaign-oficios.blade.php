@@ -18,10 +18,19 @@
 
 @section('content')
     <div class="mx-auto max-w-4xl px-4">
-        <!-- Banner Section -->
+        <!-- Banner Section 
         <section class="pt-2 pb-4">
             <div class="relative">
                 <img src="{{ asset('assets/images/donaciones/portada-oficios.png') }}" class="mx-auto w-5/5 max-w-4xl rounded-lg shadow-lg" alt="Banner de la campaña de donaciones">
+            </div>
+        </section> -->
+        <section class="pt-2 pb-4">
+            <div class="relative overflow-hidden rounded-lg shadow-lg">
+                <img
+                    src="{{ asset('assets/images/donaciones/portada-oficios.png') }}"
+                    class="block w-full h-auto"
+                    alt="Banner de la campaña de donaciones"
+                >
             </div>
         </section>
 
@@ -137,24 +146,21 @@ Tenemos una meta de $100,000 MX, lo cual nos permitirá cubrir materiales, honor
         <section class="py-8">
             <div class="max-w-5xl mx-auto space-y-8">
                 <!-- Description -->
-                <div class="space-y-4">
-                    <p class="text-justify text-gray font-sans">
-                    ¡Ayúdanos a lograrlo!
+                <div class="space-y-4 text-center max-w-3xl mx-auto">
+                    <h3 class="text-2xl md:text-3xl text-forest font-serif font-semibold">
+                        ¡Ayúdanos a lograrlo!
+                    </h3>
+                    <p class="text-lg md:text-xl text-gray font-serif">
+                        Nuestra meta es reunir <strong class="text-forest">$100,000 MXN</strong> del 1 de octubre al 10 de diciembre de 2026.
                     </p>
-                    <p class="text-justify text-gray font-sans">
-                    Nuestra meta es reunir $100,000 MXN tenemos del 1 de octubre al 10 de diciembre de 2026.
-                   </p>
-                    <p class="text-justify text-gray font-sans">
-                    Tu aportación hace posible que alguien enseñe lo que sabe, que alguien más pueda aprenderlo y que estos saberes sigan circulando para seguir haciendo al barrio.
+                    <p class="text-lg md:text-xl text-gray font-serif">
+                        Tu aportación hace posible que alguien enseñe lo que sabe, que alguien más pueda aprenderlo y que estos saberes sigan circulando para seguir haciendo al barrio.
                     </p>
-                    <p class="text-justify text-gray font-sans">
-                    Tu aportación hace posible que alguien enseñe lo que sabe, que alguien más pueda aprenderlo y que estos saberes sigan circulando para seguir haciendo al barrio.
-                    </p>
-                    <p class="text-justify text-gray font-sans">
-                    Dona. Comparte. Participa.<br>
-                    Oficios que hacen al barrio.<br>
-                    Saberes que hacen comunidad.
-                    </p>
+                    <div class="text-lg md:text-xl text-forest font-serif pt-4 space-y-1 font-medium">
+                        <p>Dona. Comparte. Participa.</p>
+                        <p class="font-semibold">Oficios que hacen al barrio.</p>
+                        <p>Saberes que hacen comunidad.</p>
+                    </div>
                 </div>
 
                 <!-- Image Section
@@ -179,7 +185,7 @@ Tenemos una meta de $100,000 MX, lo cual nos permitirá cubrir materiales, honor
                 <!-- Donation Section -->
                 <div class="space-y-6">
                     <div class="w-full border-b-2 border-forest flex justify-center mb-10">
-                        <h3 class="text-2xl text-center bg-forest font-regular text-white font-serif mb-0 py-1 px-4">
+                        <h3 class="text-2xl text-center bg-forest font-regular text-black font-serif mb-0 py-1 px-4">
                             ¿Cómo puedo donar?
                         </h3>
                     </div>
@@ -187,7 +193,7 @@ Tenemos una meta de $100,000 MX, lo cual nos permitirá cubrir materiales, honor
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="flex flex-col justify-between bg-forest p-4 rounded-3xl shadow-sm">
-                            <h4 class="font-medium text-2xl text-white font-serif w-2/3 mr-auto">Donación a través de nuestra página web</h4>
+                            <h4 class="font-medium text-2xl text-black font-serif w-2/3 mr-auto">Donación a través de nuestra página web</h4>
 
                             <div class="mb-2 self-end">
                                 <a href="#"
@@ -290,15 +296,26 @@ Tenemos una meta de $100,000 MX, lo cual nos permitirá cubrir materiales, honor
 
 
                 <!-- Delivery Information -->
-                <div class="space-y-4">
-                    
-                
-                    <p class="text-gray font-sans">
-                    Los reconocimientos digitales te llegarán en un lapso de 7 días hábiles después de haber realizado tu donativo.<br>
-Los reconocimientos físicos serán entregados en la Kermés de Casa Gallina el 5 de diciembre de 2026.
-
+                <div class="space-y-3 text-center md:text-left">
+                    <p class="text-lg md:text-xl text-gray font-serif">
+                        Los <strong class="text-forest">reconocimientos digitales</strong> te llegarán en un lapso de 7 días hábiles después de haber realizado tu donativo.
+                    </p>
+                    <p class="text-lg md:text-xl text-gray font-serif">
+                        Los <strong class="text-forest">reconocimientos físicos</strong> serán entregados en la Kermés de Casa Gallina el 5 de diciembre de 2026.
                     </p>
                 </div>
+     <!-- Botón Final Section -->
+<section class="py-8 w-full flex justify-center text-center">
+    <div class="w-full flex justify-center">
+        <a href="#"
+           data-bs-toggle="modal"
+           data-bs-target="#modal-donacion"
+           style="background-color: #6C8E68; color: #ffffff !important;"
+           class="inline-block hover:opacity-90 hover:no-underline px-6 py-1.5 rounded-full font-sans font-medium text-base shadow-sm transition duration-300">
+            Dona
+        </a>
+    </div>
+</section>
                 <div class="flex flex-col gap-6 justify-between bg-gray-100 p-4 rounded-3xl shadow-sm">
                             <div>
 
