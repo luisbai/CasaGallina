@@ -8,8 +8,8 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="donacion-imagen">
-                            <img src="{{ asset('assets/images/donaciones/modal-bg4.jpg') }}"
-                                alt="Campaña de fondeo colectivo">
+                            <img src="{{ asset('assets/images/donaciones/banner-oficios.png') }}"
+                                alt="Oficios que hacen al barrio. Campaña de fondeo colectivo">
                         </div>
 
                         <div class="donacion-text-wrapper">
@@ -20,9 +20,9 @@
                                 medio ambiente.</p>
 
                             <div class="text-right mt-12">
-                                <a href="{{ route('donaciones') }}"
-                                    class="px-4 py-2 rounded-xl bg-forest text-white mt-4 hover:no-underline hover:bg-green-800/90 transition">
-                                    Más información
+                                <a href="https://casagallina.org.mx/donaciones/donacion-campaign-oficios"
+                                    class="px-4 py-2 rounded-xl bg-forest text-green mt-4 hover:no-underline hover:bg-green-800/90 transition">
+                                   Más información
                                      <!-- Va el link con la campaña de fondeo oficios -->
                                 </a>
                             </div>
@@ -33,7 +33,7 @@
                             action="/donaciones/checkout">
                             @csrf
 
-                            <h3>Casa Gallina: 10 años de trabajo comunitario</h3>
+                            <h3>Oficios que hacen al barrio.<br>Campaña de fondeo colectivo</h3>
 
 
                             <!--
