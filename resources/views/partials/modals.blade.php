@@ -346,3 +346,32 @@
         </div>
     </div>
 </div>
+<script>
+    window.addEventListener('load', function () {
+
+        if (sessionStorage.getItem('donacionModalShown')) {
+            return;
+        }
+
+        const modalElement = document.getElementById('modal-donacion');
+        if (!modalElement) return;
+
+        function marcarComoVisto() {
+            sessionStorage.setItem('donacionModalShown', 'true');
+        }
+
+        if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+            const donacionModal = new bootstrap.Modal(modalElement);
+            donacionModal.show();
+            marcarComoVisto();
+            return;
+        }
+
+
+        if (typeof window.jQuery !== 'undefined' && typeof jQuery.fn.modal !== 'undefined') {
+            window.jQuery('#modal-donacion').modal('show');
+            marcarComoVisto();
+            return;
+        }
+    });
+</script>
