@@ -17,6 +17,13 @@
             <div class="w-full md:w-64">
                 <flux:input wire:model.live.debounce.300ms="search" placeholder="Buscar..." icon="magnifying-glass" />
             </div>
+            <flux:button
+    wire:click="exportLeads"
+    icon="arrow-down-tray"
+    variant="primary"
+    class="!bg-forest-600 hover:!bg-forest-700">
+    Exportar Leads (Excel / CSV)
+</flux:button>
 
             <!-- Filters -->
             <div class="flex gap-2 w-full md:w-auto">
@@ -29,6 +36,7 @@
                 </select>
             </div>
         </div>
+
 
         <!-- Table -->
         <flux:table :paginate="$this->submissions">
