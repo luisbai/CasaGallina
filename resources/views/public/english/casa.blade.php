@@ -330,9 +330,7 @@
                                     <p class="card-text">For the development of 2023 programs, we are grateful for the direct support of:</p>
                                     <ul class="list-unstyled">
                                         <li>XTRA Congelados Naturales SA de CV through EFIARTES (Tax incentive from article 190 of LISR)</li>
-                                         <li class="mt-2">
-                                            <a href="https://casagallina.org.mx/en/strategy/collective-funding-campaign-recreate/26" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Crowdfunding Campaign: Recreate</a>
-                                        </li>
+                                         
                                     </ul>
                                 </div>
                             </div>
@@ -347,8 +345,9 @@
                                     <ul class="list-unstyled">
                                         <li>Coppel Foundation through Kaleidoscope program</li>
                                         <li class="mt-2">
-                                            <a href="https://casagallina.org.mx/en/donate/campaign" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Casa Gallina 10 Years of Community Work</a>
+                                            <a href="https://casagallina.org.mx/en/strategy/collective-funding-campaign-recreate/26" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Crowdfunding Campaign: Recreate</a>
                                         </li>
+                                        
 
 
                                     </ul>
@@ -363,7 +362,32 @@
                                     <h5 class="card-title">Programs 2025</h5>
                                     <p class="card-text">For the development of 2025 programs, we are grateful for the direct support of:</p>
                                     <ul class="list-unstyled">
-                                        <li>Programa de Desarrollo de Arte y Cultura Citibanamex (DAC)</li>
+                                        <li>Programa de Desarrollo de Arte y Cultura Citibanamex (DAC)</li><br>
+                                       
+                                        <li>Vuelta Sur Foundation<li>
+                                        <li class="mt-2">
+                                            <a href="https://casagallina.org.mx/en/donate/campaign" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Crowdfunding campaign: 10 years of community work</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2026 Programs Card -->
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body text-left">
+                                    <h5 class="card-title">Programs 2026</h5>
+                                    <p class="card-text">For the development of 2026 programs, we are grateful for the direct support of:</p>
+                                    <ul class="list-unstyled">
+                                        <li>Programa de Desarrollo de Arte y Cultura Banamex (DAC Banamex)</li><br>
+                                        <li>XTRA Congelados Naturales SA de CV and XSANT SA de CV through EFIARTES (Tax incentive from article 190 of LISR)
+                                        <li>Metlife Foundation</li><br>
+                                        <li>Banco Mundial- Community Connections Campaign<li>
+                                        <li class="mt-2">
+                                            <a href="https://casagallina.org.mx/donaciones/aqui-es-una-casa" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Crowdfunding campaign: Aquí es una casa</a>
+                                        </li>  
 
                                     </ul>
                                 </div>
