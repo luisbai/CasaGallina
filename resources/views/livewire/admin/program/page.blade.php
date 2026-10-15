@@ -73,6 +73,9 @@
                     @endforelse
                 </flux:table.rows>
             </flux:table>
+            <div class="relative z-30 pt-4 border-t border-zinc-200">
+                <flux:pagination :paginator="$this->programs" />
+            </div>
         </flux:card>
     </div>
     <div class="md:col-span-5">

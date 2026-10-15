@@ -15,7 +15,7 @@ class ContactService
     {
         return $this->repository->paginate($perPage, $search, $filterType, $sortBy, $sortDirection);
     }
-    
+
     public function create(array $data)
     {
         return $this->repository->create($data);
@@ -33,7 +33,7 @@ class ContactService
     public function subscribeToNewsletter(int $id): array
     {
         $submission = $this->repository->find($id);
-        
+
         if (!$submission) {
              return ['success' => false, 'message' => 'Submission not found'];
         }
@@ -64,5 +64,9 @@ class ContactService
         } else {
             return ['success' => false, 'message' => 'Error al suscribir usuario al newsletter. Intenta de nuevo.', 'type' => 'error'];
         }
+    }
+    public function find(int $id)
+    {
+        return $this->repository->find($id);
     }
 }
