@@ -367,7 +367,7 @@
                                     <ul class="list-unstyled">
                                         <li>Programa de Desarrollo de Arte y Cultura Citibanamex (DAC)</li>
                                         <li class="mt-2">
-                                            <a href="https://casagallina.org.mx/donaciones/campaigna" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Campaña de fondeo colectivo: 10 años de trabajo comunitario</a>
+                                            <a href="https://casagallina.org.mx/donaciones/campaign" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Campaña de fondeo colectivo: 10 años de trabajo comunitario</a>
                                         </li><br>
                                         <li>Vuelta Sur Foundation</li>
                                     </ul>
@@ -386,7 +386,7 @@
                                         <li>Metlife Foundation</li><br>
                                         <li>Banco Mundial- Community Connections Campaign</li><br>
                                         <li class="mt-2">
-                                            <a href="https://casagallina.org.mx/aqui-es-una-casa" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Campaña de fondeo colectivo: Aquí es una casa</a>
+                                            <a href="https://casagallina.org.mx/donaciones/aqui-es-una-casa" target="_blank" style="font-family: 'Playfair Display', serif; color: #68945c; font-weight: bold; text-decoration: none; font-size: 16px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Campaña de fondeo colectivo: Aquí es una casa</a>
                                         </li>
                                     </ul>
                                 </div>
