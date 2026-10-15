@@ -17,7 +17,7 @@
             </flux:modal.trigger>
         </div>
 
-        <flux:card class="!px-5 !pt-1.5 !pb-4 shadow-sm">
+        <flux:card class="!px-5 !pt-1.5 !pb-4 shadow-sm relative z-20">
             <flux:table :paginate="$this->programs">
                 <flux:table.columns>
                     <flux:table.column>Categoría</flux:table.column>
@@ -73,9 +73,7 @@
                     @endforelse
                 </flux:table.rows>
             </flux:table>
-            <div class="relative z-30 pt-4 border-t border-zinc-200">
-                <flux:pagination :paginator="$this->programs" />
-            </div>
+
         </flux:card>
     </div>
     <div class="md:col-span-5">
